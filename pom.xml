@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.rain</groupId>
+    <artifactId>pencil</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>gateway</module>
+        <module>common</module>
+        <module>apple</module>
+        <module>banana</module>
+    </modules>
+
+    <properties>
+        <spring-cloud-dependencies.version>Greenwich.SR2</spring-cloud-dependencies.version>
+        <spring-boot-dependencies.version>2.1.7.RELEASE</spring-boot-dependencies.version>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!--依赖管理器，子model按需引用即可-->
+    <dependencyManagement>
+        <dependencies>
+            <!--多继承 spring cloud，相当于<parent>标签-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--多继承 spring boot，相当于<parent>标签-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--解决module默认jdk版本1.5的问题-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

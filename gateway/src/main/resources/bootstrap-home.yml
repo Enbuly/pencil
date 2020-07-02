@@ -1,0 +1,46 @@
+server:
+  port: 8764
+
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.0.0.8:8848
+    sentinel:
+      transport:
+        dashboard: http://localhost:8080
+        port: 8719
+    gateway:
+      routes:
+        # http://localhost:8764/apple/fruit/hi?name=zzy
+        - id: service-apple
+          uri: lb://service-apple
+          predicates:
+            - Path=/apple/**
+        # http://localhost:8764/banana/fruit/hello?name=zzy&email=120157229
+        # http://localhost:8764/banana/fruit/dubboDemo
+        - id: service-banana
+          uri: lb://service-banana
+          predicates:
+            - Path=/banana/**
+  datasource:
+    name: test
+    url: jdbc:mysql://localhost:3306/springboot
+    username: root
+    password: 120157229
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 3
+    minIdle: 3
+    maxActive: 30
+    maxWait: 15000
+    timeBetweenEvictionRunsMillis: 120000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: false
+    maxPoolPreparedStatementPerConnectionSize: 50

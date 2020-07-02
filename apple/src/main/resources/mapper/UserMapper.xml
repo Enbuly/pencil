@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rain.dao.UserMapper">
+    <select id="select" resultType="com.rain.api.apple.model.User">
+        select id, name, salary, status, phone, password from user
+        where 1=1
+        <if test="id != null and id != ''">
+            and id = #{id}
+        </if>
+        <if test="name != null and name != ''">
+            and name = #{name}
+        </if>
+        <if test="salary != null and salary != ''">
+            and salary = #{salary}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status}
+        </if>
+        <if test="phone != null and phone != ''">
+            and phone = #{phone}
+        </if>
+        <if test="password != null and password != ''">
+            and password = #{password}
+        </if>
+    </select>
+
+    <update id="updateUserById" parameterType="com.rain.api.apple.model.User">
+        update user
+        set name = #{name},
+        salary = #{salary},
+        status = #{status},
+        phone = #{phone},
+        password = #{password}
+        where id = #{id}
+    </update>
+
+    <insert id="insertUser">
+        insert into user(
+        id, name, salary, status, phone, password
+        ) values(
+          #{id}, #{name}, #{salary}, #{status}, #{phone}, #{password}
+        )
+    </insert>
+
+    <insert id="batchInsertUser">
+        insert into user(
+        id, name, salary, status, phone, password
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id}, #{item.name}, #{item.salary},
+            #{item.status}, #{item.phone}, #{item.password})
+        </foreach>
+    </insert>
+</mapper>

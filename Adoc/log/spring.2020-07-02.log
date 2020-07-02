@@ -1,0 +1,96 @@
+2020-07-02 16:10:32.693  INFO o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener:68-Dubbo Config was overridden by externalized configuration {dubbo.application.name=dubbo-provider, dubbo.application.qos-accept-foreign-ip=false, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.protocol.name=dubbo, dubbo.protocol.port=20880, dubbo.registry.address=nacos://127.0.0.1:8848}
+2020-07-02 16:10:32.743  INFO c.r.AppleApplication:651-The following profiles are active: phone
+2020-07-02 16:10:33.558  INFO o.s.d.r.c.RepositoryConfigurationDelegate:244-Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-02 16:10:33.561  INFO o.s.d.r.c.RepositoryConfigurationDelegate:126-Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-07-02 16:10:33.586  INFO o.s.d.r.c.RepositoryConfigurationDelegate:182-Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2020-07-02 16:10:33.724  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:122-The dubbo config bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, class : org.apache.dubbo.config.ApplicationConfig] has been registered.
+2020-07-02 16:10:33.725  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:146-The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ApplicationConfig#0] has been registered.
+2020-07-02 16:10:33.725  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:122-The dubbo config bean definition [name : org.apache.dubbo.config.RegistryConfig#0, class : org.apache.dubbo.config.RegistryConfig] has been registered.
+2020-07-02 16:10:33.725  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:146-The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.RegistryConfig#0] has been registered.
+2020-07-02 16:10:33.725  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:122-The dubbo config bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, class : org.apache.dubbo.config.ProtocolConfig] has been registered.
+2020-07-02 16:10:33.725  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:146-The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ProtocolConfig#0] has been registered.
+2020-07-02 16:10:33.743  INFO o.a.d.c.s.b.f.a.ServiceAnnotationBeanPostProcessor:190- [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:10:33.744  INFO o.a.d.c.s.b.f.a.ServiceAnnotationBeanPostProcessor:192- [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:10:33.850  INFO o.s.c.c.s.GenericScope:295-BeanFactory id=8e1523dd-090b-3554-96c8-d0e2f9c5896a
+2020-07-02 16:10:33.936  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$e42c95af] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.009  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$107a842c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.074  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$2c948729] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.087  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.apache.dubbo.spring.boot.autoconfigure.DubboRelaxedBinding2AutoConfiguration' of type [org.apache.dubbo.spring.boot.autoconfigure.DubboRelaxedBinding2AutoConfiguration$$EnhancerBySpringCGLIB$$cf28d262] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.094  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.096  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.098  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:10:34.487  INFO o.s.b.w.e.t.TomcatWebServer:90-Tomcat initialized with port(s): 8762 (http)
+2020-07-02 16:10:34.598  INFO o.a.c.c.StandardService:173-Starting service [Tomcat]
+2020-07-02 16:10:34.598  INFO o.a.c.c.StandardEngine:173-Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020-07-02 16:10:34.726  INFO o.a.c.c.C.[.[.[/apple]:173-Initializing Spring embedded WebApplicationContext
+2020-07-02 16:10:34.726  INFO o.s.w.c.ContextLoader:284-Root WebApplicationContext: initialization completed in 1965 ms
+2020-07-02 16:10:36.261  INFO c.a.d.p.DruidDataSource:914-{dataSource-1} inited
+2020-07-02 16:10:36.480  INFO c.n.c.s.URLConfigurationSource:122-To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-02 16:10:36.486  INFO c.n.c.s.URLConfigurationSource:122-To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-02 16:10:36.866  INFO o.s.s.c.ThreadPoolTaskExecutor:171-Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-02 16:10:37.864  INFO o.s.s.c.ThreadPoolTaskScheduler:171-Initializing ExecutorService
+2020-07-02 16:10:38.084  INFO o.a.d.c.s.b.f.a.DubboConfigBindingBeanPostProcessor:86-The properties of bean [name : org.apache.dubbo.config.ApplicationConfig#0] have been binding by prefix of configuration properties : dubbo.application
+2020-07-02 16:10:38.091  INFO o.a.d.c.s.b.f.a.DubboConfigBindingBeanPostProcessor:86-The properties of bean [name : org.apache.dubbo.config.RegistryConfig#0] have been binding by prefix of configuration properties : dubbo.registry
+2020-07-02 16:10:38.097  INFO o.a.d.c.s.b.f.a.DubboConfigBindingBeanPostProcessor:86-The properties of bean [name : org.apache.dubbo.config.ProtocolConfig#0] have been binding by prefix of configuration properties : dubbo.protocol
+2020-07-02 16:10:38.166  INFO s.d.s.w.p.DocumentationPluginsBootstrapper:120-Context refreshed
+2020-07-02 16:10:38.195  INFO s.d.s.w.p.DocumentationPluginsBootstrapper:123-Found 1 custom documentation plugin(s)
+2020-07-02 16:10:38.217  INFO s.d.s.w.s.ApiListingReferenceScanner:41-Scanning for api listing references
+2020-07-02 16:10:38.423  INFO o.s.b.w.e.t.TomcatWebServer:202-Tomcat started on port(s): 8762 (http) with context path '/apple'
+2020-07-02 16:10:38.454  INFO o.s.c.a.n.r.NacosServiceRegistry:64-nacos registry, service-apple 172.20.10.2:8762 register finished
+2020-07-02 16:10:38.459  INFO c.r.AppleApplication:59-Started AppleApplication in 7.101 seconds (JVM running for 7.919)
+2020-07-02 16:10:53.843  INFO o.a.d.c.DubboShutdownHook:58- [DUBBO] Run shutdown hook now., dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:10:53.844  INFO o.a.d.s.b.c.e.AwaitingNonWebApplicationListener:155- [Dubbo] Current Spring Boot Application is about to shutdown...
+2020-07-02 16:10:53.845  INFO o.a.d.r.s.AbstractRegistryFactory:64- [DUBBO] Close all registries [], dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:10:53.848  INFO o.s.c.a.n.r.NacosServiceRegistry:76-De-registering from Nacos Server now...
+2020-07-02 16:10:53.854  INFO o.s.c.a.n.r.NacosServiceRegistry:95-De-registration finished.
+2020-07-02 16:10:53.857  INFO o.s.s.c.ThreadPoolTaskExecutor:208-Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-02 16:10:53.873  INFO c.a.d.p.DruidDataSource:1689-{dataSource-1} closed
+2020-07-02 16:10:53.905  INFO o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor:286-class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!
+2020-07-02 16:13:53.767  INFO o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener:68-Dubbo Config was overridden by externalized configuration {dubbo.application.name=dubbo-provider, dubbo.application.qos-accept-foreign-ip=false, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.protocol.name=dubbo, dubbo.protocol.port=20880, dubbo.registry.address=nacos://172.20.10.2:8848}
+2020-07-02 16:13:53.812  INFO c.r.AppleApplication:651-The following profiles are active: phone
+2020-07-02 16:13:54.857  INFO o.s.d.r.c.RepositoryConfigurationDelegate:244-Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-07-02 16:13:54.862  INFO o.s.d.r.c.RepositoryConfigurationDelegate:126-Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-07-02 16:13:54.908  INFO o.s.d.r.c.RepositoryConfigurationDelegate:182-Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2020-07-02 16:13:55.094  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:122-The dubbo config bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, class : org.apache.dubbo.config.ApplicationConfig] has been registered.
+2020-07-02 16:13:55.095  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:146-The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ApplicationConfig#0] has been registered.
+2020-07-02 16:13:55.096  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:122-The dubbo config bean definition [name : org.apache.dubbo.config.RegistryConfig#0, class : org.apache.dubbo.config.RegistryConfig] has been registered.
+2020-07-02 16:13:55.096  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:146-The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.RegistryConfig#0] has been registered.
+2020-07-02 16:13:55.096  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:122-The dubbo config bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, class : org.apache.dubbo.config.ProtocolConfig] has been registered.
+2020-07-02 16:13:55.096  INFO o.a.d.c.s.c.a.DubboConfigBindingRegistrar:146-The BeanPostProcessor bean definition [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigBindingBeanPostProcessor] for dubbo config bean [name : org.apache.dubbo.config.ProtocolConfig#0] has been registered.
+2020-07-02 16:13:55.136  INFO o.a.d.c.s.b.f.a.ServiceAnnotationBeanPostProcessor:190- [DUBBO] BeanNameGenerator bean can't be found in BeanFactory with name [org.springframework.context.annotation.internalConfigurationBeanNameGenerator], dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:13:55.136  INFO o.a.d.c.s.b.f.a.ServiceAnnotationBeanPostProcessor:192- [DUBBO] BeanNameGenerator will be a instance of org.springframework.context.annotation.AnnotationBeanNameGenerator , it maybe a potential problem on bean name generation., dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:13:55.230  INFO o.s.c.c.s.GenericScope:295-BeanFactory id=8e1523dd-090b-3554-96c8-d0e2f9c5896a
+2020-07-02 16:13:55.332  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.springframework.kafka.annotation.KafkaBootstrapConfiguration' of type [org.springframework.kafka.annotation.KafkaBootstrapConfiguration$$EnhancerBySpringCGLIB$$8872751c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.401  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b4c06399] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.468  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d0da6696] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.483  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'org.apache.dubbo.spring.boot.autoconfigure.DubboRelaxedBinding2AutoConfiguration' of type [org.apache.dubbo.spring.boot.autoconfigure.DubboRelaxedBinding2AutoConfiguration$$EnhancerBySpringCGLIB$$736eb1cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.490  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.493  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.495  INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:330-Bean 'relaxedDubboConfigBinder' of type [org.apache.dubbo.spring.boot.autoconfigure.BinderDubboConfigBinder] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-07-02 16:13:55.910  INFO o.s.b.w.e.t.TomcatWebServer:90-Tomcat initialized with port(s): 8762 (http)
+2020-07-02 16:13:56.050  INFO o.a.c.c.StandardService:173-Starting service [Tomcat]
+2020-07-02 16:13:56.051  INFO o.a.c.c.StandardEngine:173-Starting Servlet engine: [Apache Tomcat/9.0.22]
+2020-07-02 16:13:56.182  INFO o.a.c.c.C.[.[.[/apple]:173-Initializing Spring embedded WebApplicationContext
+2020-07-02 16:13:56.182  INFO o.s.w.c.ContextLoader:284-Root WebApplicationContext: initialization completed in 2348 ms
+2020-07-02 16:13:58.032  INFO c.a.d.p.DruidDataSource:914-{dataSource-1} inited
+2020-07-02 16:13:58.309  INFO c.n.c.s.URLConfigurationSource:122-To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-02 16:13:58.319  INFO c.n.c.s.URLConfigurationSource:122-To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-07-02 16:13:58.762  INFO o.s.s.c.ThreadPoolTaskExecutor:171-Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-02 16:14:00.187  INFO o.s.s.c.ThreadPoolTaskScheduler:171-Initializing ExecutorService
+2020-07-02 16:14:00.461  INFO o.a.d.c.s.b.f.a.DubboConfigBindingBeanPostProcessor:86-The properties of bean [name : org.apache.dubbo.config.ApplicationConfig#0] have been binding by prefix of configuration properties : dubbo.application
+2020-07-02 16:14:00.466  INFO o.a.d.c.s.b.f.a.DubboConfigBindingBeanPostProcessor:86-The properties of bean [name : org.apache.dubbo.config.RegistryConfig#0] have been binding by prefix of configuration properties : dubbo.registry
+2020-07-02 16:14:00.472  INFO o.a.d.c.s.b.f.a.DubboConfigBindingBeanPostProcessor:86-The properties of bean [name : org.apache.dubbo.config.ProtocolConfig#0] have been binding by prefix of configuration properties : dubbo.protocol
+2020-07-02 16:14:00.562  INFO s.d.s.w.p.DocumentationPluginsBootstrapper:120-Context refreshed
+2020-07-02 16:14:00.596  INFO s.d.s.w.p.DocumentationPluginsBootstrapper:123-Found 1 custom documentation plugin(s)
+2020-07-02 16:14:00.619  INFO s.d.s.w.s.ApiListingReferenceScanner:41-Scanning for api listing references
+2020-07-02 16:14:00.852  INFO o.s.b.w.e.t.TomcatWebServer:202-Tomcat started on port(s): 8762 (http) with context path '/apple'
+2020-07-02 16:14:00.884  INFO o.s.c.a.n.r.NacosServiceRegistry:64-nacos registry, service-apple 172.20.10.2:8762 register finished
+2020-07-02 16:14:00.888  INFO c.r.AppleApplication:59-Started AppleApplication in 8.667 seconds (JVM running for 9.528)
+2020-07-02 16:14:29.369  INFO o.a.d.c.DubboShutdownHook:58- [DUBBO] Run shutdown hook now., dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:14:29.370  INFO o.a.d.s.b.c.e.AwaitingNonWebApplicationListener:155- [Dubbo] Current Spring Boot Application is about to shutdown...
+2020-07-02 16:14:29.377  INFO o.a.d.r.s.AbstractRegistryFactory:64- [DUBBO] Close all registries [], dubbo version: 2.7.0, current host: 172.20.10.2
+2020-07-02 16:14:29.381  INFO o.s.c.a.n.r.NacosServiceRegistry:76-De-registering from Nacos Server now...
+2020-07-02 16:14:29.388  INFO o.s.c.a.n.r.NacosServiceRegistry:95-De-registration finished.
+2020-07-02 16:14:29.390  INFO o.s.s.c.ThreadPoolTaskExecutor:208-Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-02 16:14:29.407  INFO c.a.d.p.DruidDataSource:1689-{dataSource-1} closed
+2020-07-02 16:14:29.438  INFO o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor:286-class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!
