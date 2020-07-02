@@ -13,6 +13,7 @@
         <module>common</module>
         <module>apple</module>
         <module>banana</module>
+        <module>cat</module>
     </modules>
 
     <properties>
