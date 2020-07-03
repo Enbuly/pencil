@@ -10,6 +10,8 @@
 
 5、docker rmi {image id} 根据image id移除这个image
 
+如果有多个一样docker rmi{container id:tag}
+
 6、docker build -t spring-boot-study . 构建镜像
 
 7、docker run -d -p 8080:8080 {image name} 运行镜像(绑定容器的 8080 端口，并将其映射到本地主机 8080 端口上。)
