@@ -1,6 +1,7 @@
 package com.rain.controller;
 
 import com.rain.api.apple.model.User;
+import com.rain.api.apple.model.vo.UserVo;
 import com.rain.service.UserService;
 import com.rain.util.EasyPoiUtil;
 import io.swagger.annotations.Api;
@@ -39,6 +40,11 @@ public class UserController {
     @PostMapping(value = "insert")
     public int insert(@RequestBody User user) throws Exception {
         return userService.insertUser(user);
+    }
+
+    @GetMapping(value = "/selectUser")
+    public List<UserVo> selectUser() {
+        return userService.selectUser();
     }
 
     //使用谷歌浏览器导出

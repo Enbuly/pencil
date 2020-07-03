@@ -51,4 +51,12 @@
             #{item.status}, #{item.phone}, #{item.password})
         </foreach>
     </insert>
+
+    <select id="selectUser" resultType="com.rain.api.apple.model.vo.UserVo">
+        select case when u.status = 0 then '正常' when u.status = 1 then '过期' end as status,
+        GROUP_CONCAT(CONCAT(name,'(',salary,')') SEPARATOR ',') as 'namesSalary',
+        GROUP_CONCAT(CONCAT(phone,'(',password,')') SEPARATOR ',') as 'phonePassword'
+        from user u
+        group by u.status
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.rain.service;
 
 import com.rain.api.apple.model.User;
+import com.rain.api.apple.model.vo.UserVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,4 +34,9 @@ public interface UserService {
      * 新增用户信息
      **/
     int batchInsertUser(List<User> users) throws Exception;
+
+    /**
+     * 一个复杂的查询语句
+     **/
+    List<UserVo> selectUser();
 }

@@ -1,6 +1,7 @@
 package com.rain.service.impl;
 
 import com.rain.api.apple.model.User;
+import com.rain.api.apple.model.vo.UserVo;
 import com.rain.dao.UserMapper;
 import com.rain.service.UserService;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateUserById(User user) {
         return userMapper.updateUserById(user);
+    }
+
+    @Override
+    public List<UserVo> selectUser() {
+        return userMapper.selectUser();
     }
 }
