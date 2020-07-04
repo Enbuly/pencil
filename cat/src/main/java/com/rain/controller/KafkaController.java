@@ -35,7 +35,7 @@ public class KafkaController extends BaseController {
     /**
      * 测试前需要开启zookeeper服务和kafka服务以及kafkaListener
      *
-     * @see com.rain.config.kafkaListener
+     * @see com.rain.controller.kafkaListener
      **/
     @PostMapping("/testKafka")
     public ResultVo testKafka(String data) {
