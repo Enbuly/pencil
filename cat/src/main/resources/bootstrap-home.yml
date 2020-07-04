@@ -65,3 +65,6 @@ async:
     queueCapacity: 99
     keepAliveSeconds: 2
     prefix: async-api-
+
+kafka:
+  ip: 10.0.0.8:9092
