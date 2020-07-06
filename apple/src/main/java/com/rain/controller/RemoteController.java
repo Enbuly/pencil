@@ -3,10 +3,7 @@ package com.rain.controller;
 import com.rain.api.apple.model.User;
 import com.rain.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -46,5 +43,18 @@ public class RemoteController {
     @GetMapping(value = "/list")
     public List<User> list(User user) {
         return userService.select(user);
+    }
+
+    @PostMapping(value = "/update")
+    public User update(@RequestBody User user) {
+        System.out.println(user.toString() + " update success!");
+        User result = new User();
+        result.setId("i am id");
+        result.setName("zzy");
+        result.setPassword("120157");
+        result.setPhone("15602227266");
+        result.setSalary(20000);
+        result.setStatus(0);
+        return result;
     }
 }

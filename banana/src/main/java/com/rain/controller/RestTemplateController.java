@@ -4,6 +4,7 @@ import com.rain.api.apple.model.User;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -51,10 +52,19 @@ public class RestTemplateController {
 
     @GetMapping(value = "/getAndHaveArgs")
     public List<User> getAndHaveArgs() {
-        final String GET_AND_HAVE_ARGS = "http://127.0.0.1:8762/apple/fruit/list?name=zzy";
-        User[] users = restTemplate.getForObject(GET_AND_HAVE_ARGS, User[].class);
+        final String GET_AND_HAVE_ARGS = "http://127.0.0.1:8762/apple/fruit/list";
+        User[] users = restTemplate.getForObject(GET_AND_HAVE_ARGS + "?name=zzy", User[].class);
         if (users != null)
             return Arrays.asList(users);
         return null;
+    }
+
+    @PostMapping(value = "/update")
+    public User update() {
+        final String UPDATE = "http://127.0.0.1:8762/apple/fruit/update";
+        User user = new User();
+        user.setId("i am post test");
+        user.setName("you can do it");
+        return restTemplate.postForObject(UPDATE, user, User.class);
     }
 }
