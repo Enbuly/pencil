@@ -68,3 +68,6 @@ async:
 
 kafka:
   ip: 172.20.10.2:9092
+
+banana:
+  appleHi: http://172.20.10.2:8762/apple/fruit/hi?name=

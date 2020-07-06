@@ -1,6 +1,7 @@
 package com.rain.controller;
 
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,14 +20,14 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/restTemplate")
 public class RestTemplateController {
 
-    private static final String url = "http://172.20.10.2:8762/apple/fruit/hi?name=";
     @Resource
     private RestTemplate restTemplate;
+
+    @Value("${banana.appleHi}")
+    private String url;
 
     @GetMapping(value = "/list")
     public String list(String name) {
         return restTemplate.getForObject(url + name, String.class);
     }
-
-
 }
