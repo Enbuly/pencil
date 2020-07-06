@@ -3,6 +3,7 @@ package com.rain.controller;
 import com.rain.api.apple.model.User;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,6 +60,17 @@ public class RestTemplateController {
         return null;
     }
 
+    @GetMapping(value = "/getEntity")
+    public List<User> getEntity() {
+        final String GET_AND_HAVE_ARGS = "http://127.0.0.1:8762/apple/fruit/list";
+        final int SUCCESS = 200;
+
+        ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(GET_AND_HAVE_ARGS + "?name=zzy", User[].class);
+        if (responseEntity.getStatusCodeValue() == SUCCESS && null != responseEntity.getBody())
+            return Arrays.asList(responseEntity.getBody());
+        return null;
+    }
+
     @PostMapping(value = "/update")
     public User update() {
         final String UPDATE = "http://127.0.0.1:8762/apple/fruit/update";
@@ -66,5 +78,21 @@ public class RestTemplateController {
         user.setId("i am post test");
         user.setName("you can do it");
         return restTemplate.postForObject(UPDATE, user, User.class);
+    }
+
+    @PostMapping(value = "/updates")
+    public User updates() {
+        final String UPDATE = "http://127.0.0.1:8762/apple/fruit/update";
+        final int SUCCESS = 200;
+
+        User user = new User();
+        user.setId("i am post test");
+        user.setName("you can do it");
+        user.setPhone("phone");
+
+        ResponseEntity<User> responseEntity = restTemplate.postForEntity(UPDATE, user, User.class);
+        if (SUCCESS == responseEntity.getStatusCodeValue())
+            return responseEntity.getBody();
+        return null;
     }
 }
