@@ -7,7 +7,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 172.20.10.2:8848
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: http://localhost:8080
+        port: 8719
     gateway:
       routes:
         # http://localhost:8764/apple/fruit/hi?name=zzy

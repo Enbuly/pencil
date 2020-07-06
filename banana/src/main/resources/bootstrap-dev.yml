@@ -1,18 +1,18 @@
 server:
-  port: 8765
+  port: 8763
   servlet:
-    context-path: /cat
+    context-path: /banana
 
 dubbo:
   application:
-    name: dubbo-provider
+    name: dubbo-consumer-banana
     qos-enable: false
     qos-accept-foreign-ip: false
   registry:
-    address: nacos://172.20.10.2:8848
-  protocol:
-    name: dubbo
-    port: 20880
+    address: nacos://127.0.0.1:8848
+  consumer:
+    timeout: 4000
+    check: false
 
 spring:
   main:
@@ -20,11 +20,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 172.20.10.2:8848
+        server-addr: 127.0.0.1:8848
       config:
-        server-addr: 172.20.10.2:8848
+        server-addr: 127.0.0.1:8848
   application:
-    name: service-cat
+    name: service-banana
   datasource:
     name: test
     url: jdbc:mysql://localhost:3306/springboot
@@ -67,4 +67,7 @@ async:
     prefix: async-api-
 
 kafka:
-  ip: 172.20.10.2:9092
+  ip: 127.0.0.1:9092
+
+banana:
+  appleHi: http://10.0.0.8:8762/apple/fruit/hi?name=

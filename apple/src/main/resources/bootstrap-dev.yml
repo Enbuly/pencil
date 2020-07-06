@@ -20,9 +20,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 10.0.0.8:8848
+        server-addr: 127.0.0.1:8848
       config:
-        server-addr: 10.0.0.8:8848
+        server-addr: 127.0.0.1:8848
   application:
     name: service-apple
   datasource:
@@ -67,4 +67,4 @@ async:
     prefix: async-api-
 
 kafka:
-  ip: 10.0.0.8:9092
+  ip: 127.0.0.1:9092
