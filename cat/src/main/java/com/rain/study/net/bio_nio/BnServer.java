@@ -16,7 +16,7 @@ import java.util.List;
 public class BnServer {
 
     public static void main(String[] args) throws Exception {
-        System.out.println("======================" + "welcome to server" + "======================");
+        System.out.println("================" + "welcome to server" + "================");
         ByteBuffer byteBuffer = ByteBuffer.allocate(512);
         List<SocketChannel> list = new ArrayList<>();
 
