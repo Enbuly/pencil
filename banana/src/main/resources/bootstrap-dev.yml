@@ -70,4 +70,4 @@ kafka:
   ip: 127.0.0.1:9092
 
 banana:
-  appleHi: http://10.0.0.8:8762/apple/fruit/hi?name=
+  appleHi: http://127.0.0.1:8762/apple/fruit/hi?name=
