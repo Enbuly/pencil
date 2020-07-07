@@ -32,7 +32,7 @@ public class BnServer {
                     byteBuffer.get(bytes);
                     String content = new String(bytes);
                     System.out.println(content);
-                    byteBuffer.flip();
+                    byteBuffer.clear();
                     list.remove(list.get(i));
                 }
             }
