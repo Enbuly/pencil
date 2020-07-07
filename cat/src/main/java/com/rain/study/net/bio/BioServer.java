@@ -36,7 +36,10 @@ public class BioServer {
                 if (read > 0) {
                     System.out.println("the client message is " + result);
                 }
+
+                //模拟处理客户端的请求，并返回结果
                 String results = "i am server, you message is " + result;
+
                 try {
                     socket.getOutputStream().write(results.getBytes());
                 } catch (IOException e) {
