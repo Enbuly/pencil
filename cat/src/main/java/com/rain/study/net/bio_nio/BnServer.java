@@ -44,8 +44,6 @@ public class BnServer {
                     System.out.println("list size is " + list.size());
                 }
             }
-
         }
-
     }
 }
