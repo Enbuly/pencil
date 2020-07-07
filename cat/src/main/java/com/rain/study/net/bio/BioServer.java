@@ -32,9 +32,15 @@ public class BioServer {
                     System.out.println(e.getMessage());
                 }
                 System.out.println("server read success...");
+                String result = new String(bytes, 0, read, Charset.forName("utf-8"));
                 if (read > 0) {
-                    System.out.println("the client message is " +
-                            new String(bytes, 0, read, Charset.forName("utf-8")));
+                    System.out.println("the client message is " + result);
+                }
+                String results = "i am server, you message is " + result;
+                try {
+                    socket.getOutputStream().write(results.getBytes());
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
                 }
             }).start();
         }
