@@ -48,7 +48,6 @@ public class NioServer {
                         System.out.println("客戶端已连接");
                         System.out.println("=========================================================");
                     }
-
                     if (key.isReadable()) {
                         SocketChannel socket = (SocketChannel) key.channel();
                         InetSocketAddress address = (InetSocketAddress) socket.getRemoteAddress();
