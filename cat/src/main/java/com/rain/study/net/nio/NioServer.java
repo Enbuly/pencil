@@ -31,8 +31,7 @@ public class NioServer {
             Calendar ca = Calendar.getInstance();
             System.out.println("服务端开启了");
             System.out.println("=========================================================");
-            while (true) {
-                selector.select();
+            while (selector.select() > 0) {
                 Iterator<SelectionKey> it = selector.selectedKeys().iterator();
                 while (it.hasNext()) {
                     SelectionKey key = it.next();
