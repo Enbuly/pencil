@@ -1,4 +1,4 @@
-package com.rain.study.net.bio_nio;
+package com.rain.study.net.io;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * bio - nio server
+ * bio to nio server
  *
  * @author lazy cat
  * 2020-07-05
  **/
-public class BnServer {
+public class BioToNioServer {
 
     public static void main(String[] args) throws Exception {
         System.out.println("================" + "welcome to server" + "================");
@@ -21,7 +21,7 @@ public class BnServer {
         List<SocketChannel> list = new ArrayList<>();
 
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
-        serverSocketChannel.bind(new InetSocketAddress("127.0.0.1", 9876));
+        serverSocketChannel.bind(new InetSocketAddress("127.0.0.1", 9999));
         serverSocketChannel.configureBlocking(false);
         while (true) {
             for (int i = 0; i < list.size(); i++) {
@@ -32,6 +32,11 @@ public class BnServer {
                     byteBuffer.get(bytes);
                     String content = new String(bytes);
                     System.out.println(content);
+                    byteBuffer.clear();
+                    String result = "i am server, you message is " + content;
+                    byteBuffer.put(result.getBytes());
+                    byteBuffer.flip();
+                    list.get(i).write(byteBuffer);
                     byteBuffer.clear();
                     list.remove(list.get(i));
                 }

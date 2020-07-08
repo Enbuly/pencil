@@ -1,4 +1,4 @@
-package com.rain.study.net.bio;
+package com.rain.study.net.io;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 
 /**
- * bio server
+ * io server
  *
  * @author lazy cat
  * 2020-07-05

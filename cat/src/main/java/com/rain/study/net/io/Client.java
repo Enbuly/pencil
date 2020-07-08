@@ -1,4 +1,4 @@
-package com.rain.study.net.bio;
+package com.rain.study.net.io;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,15 +7,14 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 /**
- * bio client
+ * client
  *
  * @author lazy cat
  * 2020-07-05
  **/
-public class BioClient {
+public class Client {
 
     public static void main(String[] args) throws IOException {
-
         Socket socket = new Socket("127.0.0.1", 9999);
         OutputStream os = socket.getOutputStream();
         Scanner scanner = new Scanner(System.in);
