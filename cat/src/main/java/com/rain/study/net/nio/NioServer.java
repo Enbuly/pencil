@@ -27,6 +27,9 @@ public class NioServer {
             Selector selector = Selector.open();
             serverSocket.register(selector, SelectionKey.OP_ACCEPT);
 
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+
             //java的日历对象
             Calendar ca = Calendar.getInstance();
             System.out.println("服务端开启了");
@@ -41,7 +44,10 @@ public class NioServer {
                         socket.configureBlocking(false);
                         socket.register(selector, SelectionKey.OP_READ);
                         String message = "连接成功 你是第" + (selector.keys().size() - 1) + "个用户";
-                        socket.write(ByteBuffer.wrap(message.getBytes()));
+                        byteBuffer.put(message.getBytes());
+                        byteBuffer.flip();
+                        socket.write(byteBuffer);
+                        byteBuffer.clear();
                         InetSocketAddress address = (InetSocketAddress) socket.getRemoteAddress();
                         System.out.println(ca.getTime() + "\t" + address.getHostString() +
                                 ":" + address.getPort() + "\t");
@@ -53,15 +59,14 @@ public class NioServer {
                         InetSocketAddress address = (InetSocketAddress) socket.getRemoteAddress();
                         System.out.println(ca.getTime() + "\t" + address.getHostString() +
                                 ":" + address.getPort() + "\t");
-                        ByteBuffer bf = ByteBuffer.allocate(1024 * 4);
                         int len;
-                        byte[] res = new byte[1024 * 4];
+                        byte[] res = new byte[1024];
                         try {
-                            while ((len = socket.read(bf)) != 0) {
-                                bf.flip();
-                                bf.get(res, 0, len);
+                            while ((len = socket.read(buffer)) != 0) {
+                                buffer.flip();
+                                buffer.get(res, 0, len);
                                 System.out.println(new String(res, 0, len));
-                                bf.clear();
+                                buffer.clear();
                             }
                             System.out.println("=========================================================");
                         } catch (IOException e) {
