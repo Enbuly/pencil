@@ -69,6 +69,9 @@ public class KafkaConfig {
         // acks=all 把消息发送到kafka leader分区，并且leader分区的副本follower对消息进行了同步就任务发送成功
         props.put(ProducerConfig.ACKS_CONFIG, "all");
 
+        //幂等
+        //props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
+
         // 重试次数，0为不启用重试机制
         props.put(ProducerConfig.RETRIES_CONFIG, 0);
 
