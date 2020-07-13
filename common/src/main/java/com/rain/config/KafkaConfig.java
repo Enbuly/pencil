@@ -42,9 +42,6 @@ public class KafkaConfig {
         // 拉取超时时间
         factory.getContainerProperties().setPollTimeout(3000);
 
-        // 消费者组中线程数量
-        factory.setConcurrency(3);
-
         return factory;
     }
 
