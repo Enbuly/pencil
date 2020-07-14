@@ -39,9 +39,6 @@ public class KafkaConfig {
         // 设置消费者工厂
         factory.setConsumerFactory(consumerFactory());
 
-        // 拉取超时时间
-        factory.getContainerProperties().setPollTimeout(3000);
-
         return factory;
     }
 
@@ -69,11 +66,11 @@ public class KafkaConfig {
         // acks=all 把消息发送到kafka leader分区，并且leader分区的副本follower对消息进行了同步就任务发送成功
         props.put(ProducerConfig.ACKS_CONFIG, "all");
 
-        //幂等
-        //props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
+        //幂等（acks=all可能存在数据重复的问题）
+        props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
 
         // 重试次数，0为不启用重试机制
-        props.put(ProducerConfig.RETRIES_CONFIG, 0);
+        props.put(ProducerConfig.RETRIES_CONFIG, 3);
 
         // 控制批处理大小，单位为字节
         props.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
