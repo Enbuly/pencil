@@ -68,3 +68,11 @@ async:
 
 kafka:
   ip: 127.0.0.1:9092
+
+zookeeper:
+  servers: localhost:2181
+  lockPath: /lock
+  sessionTimeoutMs: 60000
+  connectionTimeoutMs: 5000
+  retryCount: 5
+  elapsedTimeMs: 1000
