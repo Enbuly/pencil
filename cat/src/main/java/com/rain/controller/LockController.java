@@ -11,7 +11,11 @@ import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
 /**
- * lock controller
+ * zookeeper实现分布式锁-curator(zookeeper客户端框架)
+ *
+ * 涉及的两个class
+ * @see CuratorConfigurer
+ * @see ZookeeperConfigurer
  *
  * @author lazy cat
  * @since 2020-07-14
