@@ -1,4 +1,4 @@
-package com.rain.controller;
+package com.rain.myConfig;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,6 +1,7 @@
 package com.rain.controller;
 
 import com.rain.annotation.aopLog.Loggable;
+import com.rain.myConfig.kafkaListener;
 import com.rain.responseVo.ResultVo;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
@@ -35,7 +36,7 @@ public class KafkaController extends BaseController {
     /**
      * 测试前需要开启zookeeper服务和kafka服务以及kafkaListener
      *
-     * @see com.rain.controller.kafkaListener
+     * @see kafkaListener
      **/
     @PostMapping("/testKafka")
     public ResultVo testKafka(String data) {

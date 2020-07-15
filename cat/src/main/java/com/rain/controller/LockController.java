@@ -1,5 +1,7 @@
 package com.rain.controller;
 
+import com.rain.myConfig.CuratorConfigurer;
+import com.rain.myConfig.ZookeeperConfigurer;
 import io.swagger.annotations.Api;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
@@ -57,7 +59,6 @@ public class LockController {
         InterProcessMutex mutex = new InterProcessMutex(curatorFramework, zookeeperConfigurer.getLockPath());
         try {
             if (mutex.acquire(0, TimeUnit.SECONDS)) {
-                mutex.release();
                 return "hi " + name;
             }
             return "hello " + name;
