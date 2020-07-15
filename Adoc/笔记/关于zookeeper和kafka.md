@@ -108,12 +108,12 @@ transactional.id配置项设置为某个唯一ID。而PID是内部的实
 Transaction ID的Producer失效，每次Producer 
 通过Transaction ID拿到PID的同时，还会获取一个
 单调递增的epoch。由于旧的Producer的epoch比新
-Producer的epoch小，Kafka可以很容易识别出该 
+Producer的epoch小，Kafka可以很容易识别出该
 Producer是老的Producer并拒绝其请求。
 
     使用事务配置配置：
     1、
-    //结合幂等配置，保证跨会话、跨分区的Exactly Once ->还需要配合代码改动，暂未完成
+    //事务id
     props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
      
     2、
