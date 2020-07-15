@@ -40,6 +40,7 @@ public class KafkaController extends BaseController {
      * 测试前需要开启zookeeper服务和kafka服务以及kafkaListener
      *
      * @see kafkaListener
+     * @see com.rain.config.KafkaConfig
      **/
     @PostMapping("/testKafka")
     @Transactional
@@ -61,6 +62,7 @@ public class KafkaController extends BaseController {
      * 测试前需要开启zookeeper服务和kafka服务以及kafkaListener
      *
      * @see kafkaListener
+     * @see com.rain.config.KafkaConfig
      **/
     @PostMapping("/testKafka2")
     @Transactional
