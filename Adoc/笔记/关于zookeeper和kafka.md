@@ -110,3 +110,26 @@ Transaction ID的Producer失效，每次Producer
 单调递增的epoch。由于旧的Producer的epoch比新
 Producer的epoch小，Kafka可以很容易识别出该 
 Producer是老的Producer并拒绝其请求。
+
+    使用事务配置配置：
+    1、
+    //结合幂等配置，保证跨会话、跨分区的Exactly Once ->还需要配合代码改动，暂未完成
+    props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
+     
+    2、
+    private ProducerFactory<Integer, String> producerFactory() {
+            DefaultKafkaProducerFactory<Integer, String> producerFactory =
+                    new DefaultKafkaProducerFactory<>(producerConfigs());
+            producerFactory.transactionCapable();
+            producerFactory.setTransactionIdPrefix("tra-");
+            return producerFactory;
+    }
+     
+    3、
+    @Bean
+    public KafkaTransactionManager<Integer, String> transactionManager() {
+        return new KafkaTransactionManager<>(producerFactory());
+    }
+    
+    使用：
+    @Transactional

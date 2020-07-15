@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
+import org.springframework.kafka.transaction.KafkaTransactionManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +45,16 @@ public class KafkaConfig {
 
     //生产者工厂
     private ProducerFactory<Integer, String> producerFactory() {
-        return new DefaultKafkaProducerFactory<>(producerConfigs());
+        DefaultKafkaProducerFactory<Integer, String> producerFactory =
+                new DefaultKafkaProducerFactory<>(producerConfigs());
+        producerFactory.transactionCapable();
+        producerFactory.setTransactionIdPrefix("tra-");
+        return producerFactory;
+    }
+
+    @Bean
+    public KafkaTransactionManager<Integer, String> transactionManager() {
+        return new KafkaTransactionManager<>(producerFactory());
     }
 
     //消费者工厂
@@ -69,8 +79,8 @@ public class KafkaConfig {
         //幂等（acks=all可能存在数据重复的问题）
         props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
 
-        //结合幂等配置，保证跨会话、跨分区的Exactly Once ->还需要配合代码改动，暂未完成
-        //props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
+        //结合幂等配置，保证跨会话、跨分区的Exactly Once
+        props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
 
         // 重试次数，0为不启用重试机制
         props.put(ProducerConfig.RETRIES_CONFIG, 3);
