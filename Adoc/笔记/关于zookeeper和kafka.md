@@ -113,8 +113,11 @@ Producer是老的Producer并拒绝其请求。
 
     使用事务配置配置：
     1、
-    //事务id
+    // 事务id
     props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
+    
+    // consumer只会读取已经提交了事务的消息
+    props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
      
     2、
     private ProducerFactory<Integer, String> producerFactory() {

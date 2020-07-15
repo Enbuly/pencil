@@ -111,6 +111,9 @@ public class KafkaConfig {
         // Kafka地址
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaIp);
 
+        // consumer只会读取已经提交了事务的消息
+        props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
+
         // 配置分组
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "hello");
 
