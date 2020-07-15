@@ -69,6 +69,9 @@ public class KafkaConfig {
         //幂等（acks=all可能存在数据重复的问题）
         props.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, true);
 
+        //结合幂等配置，保证跨会话、跨分区的Exactly Once ->还需要配合代码改动，暂未完成
+        //props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
+
         // 重试次数，0为不启用重试机制
         props.put(ProducerConfig.RETRIES_CONFIG, 3);
 
