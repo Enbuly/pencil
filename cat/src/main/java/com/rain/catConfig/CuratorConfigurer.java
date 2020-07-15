@@ -1,4 +1,4 @@
-package com.rain.myConfig;
+package com.rain.catConfig;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;

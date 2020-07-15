@@ -1,4 +1,4 @@
-package com.rain.myConfig;
+package com.rain.catConfig;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

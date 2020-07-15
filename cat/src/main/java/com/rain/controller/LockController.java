@@ -1,7 +1,7 @@
 package com.rain.controller;
 
-import com.rain.myConfig.CuratorConfigurer;
-import com.rain.myConfig.ZookeeperConfigurer;
+import com.rain.catConfig.CuratorConfigurer;
+import com.rain.catConfig.ZookeeperConfigurer;
 import io.swagger.annotations.Api;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;

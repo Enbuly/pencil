@@ -1,7 +1,7 @@
 package com.rain.controller;
 
 import com.rain.annotation.aopLog.Loggable;
-import com.rain.myConfig.kafkaListener;
+import com.rain.catConfig.kafkaListener;
 import com.rain.responseVo.ResultVo;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
