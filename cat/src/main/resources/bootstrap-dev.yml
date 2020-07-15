@@ -8,6 +8,9 @@ server:
     key-store-type: PKCS12
     key-alias: tomcat
 
+http:
+  port: 8881
+
 dubbo:
   application:
     name: dubbo-provider
