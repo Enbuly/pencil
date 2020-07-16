@@ -1,7 +1,19 @@
 # pencil
 
-项目分gateway、apple、banana、cat
-其中gateway为网关项目，编写了限流的demo。
-apple、banana演示了dubbo的通讯。
-apple有一些小demo，增删改查，导出，导入，一些复杂的查询。redis使用的demo。多线程使用的demo。
-cat项目有一些排序算法，jdk1.8的新特性，如stream和lambda表达式等。等等。
+## apple
+AsyncController spring的异步任务demo
+GuavaLimitController guava的api级别限流demo
+RedisController redis使用demo
+RemoteController 提供远程调用demo
+UserController 增删改查导入导出demo
+
+## banana
+DubboController dubbo远程调用demo
+RestTemplateController RestTemplate远程调用demo
+
+## cat
+KafkaController kafka的使用demo
+LockController zookeeper的分布式锁demo，使用curator
+
+## gateway
+GatewayConfig gateway使用sentinel限流配置

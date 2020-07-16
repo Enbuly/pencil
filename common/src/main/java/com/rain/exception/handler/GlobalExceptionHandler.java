@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @RestController
-@ControllerAdvice("com.example.com.rain.controller")
+@ControllerAdvice("com.rain.controller")
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = BaseRuntimeException.class)
