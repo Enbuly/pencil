@@ -1,7 +1,9 @@
 package com.rain.controller;
 
 import com.rain.api.apple.model.User;
+import com.rain.responseVo.ResultVo;
 import com.rain.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +18,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping(value = "/fruit")
-public class RemoteController {
+public class RemoteController extends BaseController {
 
     @Value("${server.port}")
     String port;
@@ -56,5 +58,14 @@ public class RemoteController {
         result.setSalary(20000);
         result.setStatus(0);
         return result;
+    }
+
+    @ApiOperation("测试gateway网关鉴权")
+    @RequestMapping(value = "/getPasswordByName", method = RequestMethod.GET)
+    public ResultVo getPassword(@RequestHeader(value = "token") String token,
+                                @RequestParam(value = "user_name") String name) {
+        checkToken(token);
+        checkName(name);
+        return ResultVo.success("zzy120157229", "获取密码成功");
     }
 }
