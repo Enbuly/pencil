@@ -136,3 +136,22 @@ Producer是老的Producer并拒绝其请求。
     
     使用：
     @Transactional
+    
+## 关于消费者
+1、多个消费者可以订阅同一个topic
+2、一个消费者只能属于一个消费者组
+3、消费者组订阅的topic只能被其中的一个消费者消费
+4、不同消费者组的消费者可以消费同一个topic
+
+分区分配策略(当消费者组的消费者数量发生改变，触发分区分配策略)
+RoundRobin:轮询策略
+Range(默认):
+n = pCount / cCount   8 / 3 = 2
+m = pCount % cCount  8 % 3 = 2
+前m(2)个消费者得到n+1(2+1)个分区，剩余的消费者分配到N(2)个分区
+
+offset：
+不同的 group + topic + partition 就有一个offset。
+kafka在0.9版本之前consumer默认将offset保存在zookeeper中，
+从0.9版本开始，consumer默认将offset保存在kafka一个内置的
+topic中，该topic为_consumer_offset。
