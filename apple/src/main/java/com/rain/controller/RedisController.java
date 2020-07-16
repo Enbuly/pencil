@@ -3,11 +3,13 @@ package com.rain.controller;
 import com.rain.annotation.aopLog.Loggable;
 import com.rain.api.apple.model.User;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,6 +83,12 @@ public class RedisController {
             }
         }
         stringRedisTemplate.expire(listKey, 60, TimeUnit.SECONDS);
+    }
+
+    @ApiOperation("测试redis的setNx命令")
+    @GetMapping(value = "setNx")
+    public Boolean setNx() {
+        return stringRedisTemplate.opsForValue().setIfAbsent("lock", "1", 20, TimeUnit.SECONDS);
     }
 
     /**
