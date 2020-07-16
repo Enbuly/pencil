@@ -99,8 +99,8 @@ producer重启PID会变化，不同的partition也会有不同的主键，
 所以幂等性无法保证跨会话、跨分区的Exactly Once。
 
 -> 事务
-为了实现这种效果,应用程序必须提供一个稳定的(重启后不变)唯一的
-ID,也即Transaction ID。Transaction ID与PID一一对应。
+为了跨分区跨会话幂等,应用程序必须提供一个稳定的(重启后不变)唯
+一的ID,也即Transaction ID。Transaction ID与PID一一对应。
 区别在于Transaction ID由用户提供，将生产者的 
 transactional.id配置项设置为某个唯一ID。而PID是内部的实
 现对用户透明。
