@@ -37,35 +37,31 @@ public class RedisController {
     @Qualifier("redisCacheTemplate")
     private RedisTemplate<String, Object> redisCacheTemplate;
 
-    @Resource
-    private RedisTemplate<String, String> redisTemplate;
-
     @ApiOperation("测试存储string")
     @PostMapping(value = "saveString")
-    public void saveString() {
+    public String saveString() {
         String key = StringUtils.join(new String[]{"user", "token"}, ":");
         String value = "0171826834da554b43d2c72bb1767c7898f27bf91775463e2b3b4e0f3806e0255d6e52ca286b";
         stringRedisTemplate.opsForValue().set(key, value);
-        System.out.println(stringRedisTemplate.opsForValue().get(key));
         stringRedisTemplate.expire(key, 60, TimeUnit.SECONDS);
+        return stringRedisTemplate.opsForValue().get(key);
     }
 
     @ApiOperation("测试存储Object")
     @PostMapping(value = "saveObject")
-    public void saveObject() {
+    public User saveObject() {
         String value = "0171826834da554b43d2c72bb1767c7898f27bf91775463e2b3b4e0f3806e0255d6e52ca286b";
         User user = new User();
         user.setName("Tom");
         user.setPassword(value);
         String userKey = StringUtils.join(new String[]{"user", "model"}, ":");
         redisCacheTemplate.opsForValue().set(userKey, user, 60, TimeUnit.SECONDS);
-        User demo = (User) redisCacheTemplate.opsForValue().get(userKey);
-        System.out.println(demo);
+        return (User) redisCacheTemplate.opsForValue().get(userKey);
     }
 
     @ApiOperation("测试存储list")
     @PostMapping("/saveList")
-    public void saveList() {
+    public List<User> saveList() {
         String listKey = StringUtils.join(new String[]{"user", "list"}, ":");
         List<User> list = new ArrayList<>();
         User user1 = new User();
@@ -78,12 +74,7 @@ public class RedisController {
         list.add(user2);
 
         redisCacheTemplate.boundValueOps(listKey).set(list, 60, TimeUnit.SECONDS);
-        List<User> userList = (List<User>) redisCacheTemplate.boundValueOps(listKey).get();
-        if (null != userList && userList.size() > 0) {
-            for (User n : userList) {
-                System.out.println(n);
-            }
-        }
+        return (List<User>) redisCacheTemplate.boundValueOps(listKey).get();
     }
 
     @ApiOperation("测试redis的setNx命令")
