@@ -60,7 +60,7 @@ public class RemoteController extends BaseController {
         return result;
     }
 
-    @ApiOperation("测试gateway网关鉴权")
+    @ApiOperation("测试gateway网关鉴权-需要通关网关访问-postman")
     @RequestMapping(value = "/getPasswordByName", method = RequestMethod.GET)
     public ResultVo getPassword(@RequestHeader(value = "token") String token,
                                 @RequestParam(value = "user_name") String name) {
