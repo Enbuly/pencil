@@ -66,6 +66,6 @@ public class RemoteController extends BaseController {
                                 @RequestParam(value = "user_name") String name) {
         checkToken(token);
         checkName(name);
-        return ResultVo.success("zzy120157229", "获取密码成功");
+        return ResultVo.success(userService.getPassword(name), "获取密码成功");
     }
 }
