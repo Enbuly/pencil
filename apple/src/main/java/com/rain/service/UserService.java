@@ -39,4 +39,11 @@ public interface UserService {
      * 一个复杂的查询语句
      **/
     List<UserVo> selectUser();
+
+    /**
+     * 根据用户名查询用户密码
+     *
+     * @param name 用户名
+     **/
+    String getPassword(String name);
 }

@@ -2,9 +2,12 @@ package com.rain.service.impl;
 
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
+import com.rain.constant.ResultCode;
 import com.rain.dao.UserMapper;
+import com.rain.exception.ServiceException;
 import com.rain.service.UserService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -50,5 +53,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserVo> selectUser() {
         return userMapper.selectUser();
+    }
+
+    @Override
+    public String getPassword(String name) {
+        if (StringUtils.isEmpty(name)) {
+            throw new ServiceException(ResultCode.PARAMETER_ERROR);
+        }
+        return userMapper.selectPasswordByUserName(name);
     }
 }

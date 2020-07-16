@@ -3,6 +3,7 @@ package com.rain.dao;
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -39,4 +40,13 @@ public interface UserMapper {
      * 一个复杂的查询语句
      **/
     List<UserVo> selectUser();
+
+    /**
+     * 根据用户名字查找用户密码
+     *
+     * @param name 用户名字
+     * @return String 用户密码
+     **/
+    @Select("SELECT password FROM user WHERE name=#{name}")
+    String selectPasswordByUserName(String name);
 }
