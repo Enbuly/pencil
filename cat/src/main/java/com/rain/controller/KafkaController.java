@@ -1,9 +1,9 @@
 package com.rain.controller;
 
 import com.rain.annotation.aopLog.Loggable;
-import com.rain.catConfig.kafkaListener;
 import com.rain.constant.ResultCode;
 import com.rain.exception.ParamsCheckException;
+import com.rain.kafkaListener.kafkaListener;
 import com.rain.responseVo.ResultVo;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
@@ -45,7 +45,7 @@ public class KafkaController extends BaseController {
     @PostMapping("/testKafka")
     @Transactional
     public ResultVo testKafka(String data) {
-        ListenableFuture<SendResult<Integer, String>> send = kafkaTemplate.send("hello", data);
+        ListenableFuture<SendResult<Integer, String>> send = kafkaTemplate.send("hi", data);
         send.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
             public void onFailure(Throwable throwable) {
                 log.info("send fail!");

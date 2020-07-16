@@ -1,4 +1,4 @@
-package com.rain.catConfig;
+package com.rain.kafkaListener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ public class kafkaListener {
 
     private Logger log = LoggerFactory.getLogger(kafkaListener.class);
 
-    @KafkaListener(topics = "hello")
+    @KafkaListener(topics = "hi", groupId = "group-first")
     public void listen(String message) {
         log.info("KafkaListener -> " + message);
     }
