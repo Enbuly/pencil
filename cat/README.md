@@ -1,3 +1,4 @@
 # cat
+需要启动kafka和zookeeper
 KafkaController kafka的使用demo
 LockController zookeeper的分布式锁demo，使用curator
