@@ -41,7 +41,7 @@ public class UserMapperTest {
         RedisClusterClient client = RedisClusterClient.create(list);
         StatefulRedisClusterConnection<String, String> connect = client.connect();
         RedisAdvancedClusterCommands<String, String> commands = connect.sync();
-        //commands.set("test2","zzy");
+        commands.set("test2", "zzy");
         String str = commands.get("test2");
         System.out.println(str);
         connect.close();
