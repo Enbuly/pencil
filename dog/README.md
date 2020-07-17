@@ -1,4 +1,0 @@
-# dog
-需要启动redis集群
-RedissonController redis集群下的分布式锁的获取
-StaticScheduleTask 定时任务

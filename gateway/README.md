@@ -1,3 +1,0 @@
-# gateway
-GatewayConfig gateway使用sentinel限流配置
-AuthFilter 鉴权
