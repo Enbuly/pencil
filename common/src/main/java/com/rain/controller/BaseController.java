@@ -13,19 +13,19 @@ import com.rain.requestVo.PageRequestVo;
  **/
 public class BaseController {
 
-    protected void checkToken(String token) {
+    void checkToken(String token) {
         if (StringUtils.isEmpty(token)) {
             throw new ParamsCheckException(ResultCode.PARAMETER_ERROR);
         }
     }
 
-    protected void checkName(String name) {
+    void checkName(String name) {
         if (StringUtils.isEmpty(name)) {
             throw new ParamsCheckException(ResultCode.PARAMETER_ERROR);
         }
     }
 
-    protected void checkPassword(String password) {
+    void checkPassword(String password) {
         if (StringUtils.isEmpty(password)) {
             throw new ParamsCheckException(ResultCode.PARAMETER_ERROR);
         }
