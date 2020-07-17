@@ -1,10 +1,11 @@
-## pencil
+## pencil note
   #### apple
     AsyncController spring的异步任务demo
     GuavaLimitController guava的api级别限流demo
     LoginController 登陆controller
     RedisController redis使用demo
-    RemoteController 提供远程调用服务demo
+    RemoteController 提供远程调用服务demo - RestTemplate远程调用提供者
+    DubboServiceImpl dubbo远程调用提供者
     UserController 增删改查导入导出demo
   #### banana
     DubboController dubbo远程调用demo
@@ -29,7 +30,7 @@
     LockController zookeeper的分布式锁demo，使用curator
     CuratorConfigurer
     ZookeeperConfigurer
-    HttpConfig 使用https的同属支持http
+    HttpConfig 使用https,同时支持http
     kafkaListener
     study -> sort,net,juc,lambda,steam,dom4j...
   #### dog(redis cluster)
