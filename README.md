@@ -17,3 +17,4 @@ LockController zookeeper的分布式锁demo，使用curator
 
 ## gateway
 GatewayConfig gateway使用sentinel限流配置
+AuthFilter 鉴权
