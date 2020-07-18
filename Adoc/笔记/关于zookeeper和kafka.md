@@ -98,7 +98,7 @@ partition的消息会附带seqNumber，而broker端会对
 producer重启PID会变化，不同的partition也会有不同的主键，
 所以幂等性无法保证跨会话、跨分区的Exactly Once。
 
--> 事务
+-> 事务(kafka从0.11版本开始引入了事务的支持)
 为了跨分区跨会话幂等,应用程序必须提供一个稳定的(重启后不变)唯
 一的ID,也即Transaction ID。Transaction ID与PID一一对应。
 区别在于Transaction ID由用户提供，将生产者的 
