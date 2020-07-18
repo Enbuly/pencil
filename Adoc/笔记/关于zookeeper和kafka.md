@@ -112,14 +112,13 @@ Producer的epoch小，Kafka可以很容易识别出该
 Producer是老的Producer并拒绝其请求。
 
     使用事务配置配置：
-    1、
-    // 事务id
+    1、生产者配置事务id，具体见KafkaConfig。
+    消费者配置，consumer只会读取已经提交了事务的消息
     props.put(ProducerConfig.TRANSACTIONAL_ID_CONFIG, "100001");
     
-    // consumer只会读取已经提交了事务的消息
     props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, "read_committed");
      
-    2、
+    2、生产者工厂配置
     private ProducerFactory<Integer, String> producerFactory() {
             DefaultKafkaProducerFactory<Integer, String> producerFactory =
                     new DefaultKafkaProducerFactory<>(producerConfigs());
@@ -128,13 +127,13 @@ Producer是老的Producer并拒绝其请求。
             return producerFactory;
     }
      
-    3、
+    3、配置KafkaTransactionManager
     @Bean
     public KafkaTransactionManager<Integer, String> transactionManager() {
         return new KafkaTransactionManager<>(producerFactory());
     }
     
-    使用：
+    4、使用：
     @Transactional
     
 ## 关于消费者
