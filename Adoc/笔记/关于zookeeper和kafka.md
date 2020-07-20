@@ -1,4 +1,4 @@
-## 关于zookeeper和kafka
+## 关于zookeeper和kafka的shell
    ### mac安装kafka
       brew install kafka
    ### kafka的启动
@@ -12,19 +12,10 @@
       8->安装配置文件的位置
       /usr/local/etc/kafka/server.properties
       /usr/local/etc/kafka/zookeeper.properties
-   ### 关于kafka的应用
-      1、批量操作（异步批量增加用户）
-      2、异步调用其他系统的api（异步调用征信信息）
-      3、频繁操作且可以异步（记录用户的位置，没隔五秒钟查看用户具体位置并记录到数据库）
-   ### 记录操作日志
-      1、可以直接在HttpAspect加入
-      @Resource
-      private KafkaTemplate<Integer, String> kafkaTemplate;
-      利用kafkaTemplate发送消息
-      2、在kafka监听器处接收数据并记录至数据库。
-      
 
 ## kafka学习笔记
+
+#### 消息队列-kafka
 消息队列的两种模式
 1、点对点模式
 2、发布/订阅模式
@@ -42,8 +33,7 @@ kafka-topics --create --zookeeper localhost:2181
 kafka-topics --list --zookeeper localhost:2181
 kafka-topics --describe --topic hello --zookeeper localhost:2181
 
-关于生产者
-
+#### 关于kafka生产者
 -> 分区策略
 1、指明partition的情况下，直接前往这个partition写数据。
 2、没有partition但有key的情况下，将key的hash值与topic
@@ -136,7 +126,7 @@ Producer是老的Producer并拒绝其请求。
     4、使用：
     @Transactional
     
-## 关于消费者
+#### 关于kafka消费者
 1、多个消费者可以订阅同一个topic
 2、一个消费者只能属于一个消费者组
 3、消费者组订阅的topic只能被其中的一个消费者消费
