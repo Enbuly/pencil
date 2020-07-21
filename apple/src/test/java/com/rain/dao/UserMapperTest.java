@@ -14,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -26,7 +27,17 @@ public class UserMapperTest {
     @Test
     public void test() {
         List<User> users = userMapper.select(new User());
-        System.out.println(users.toString());
+        for (User user : users) {
+            System.out.println(user.toString());
+        }
+    }
+
+    @Test
+    public void testMap() {
+        Map<Integer, User> map = userMapper.selectMap();
+        for (Map.Entry<Integer, User> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
     }
 
     @Test

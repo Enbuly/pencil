@@ -2,10 +2,12 @@ package com.rain.dao;
 
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 批量处理mapper
@@ -49,4 +51,10 @@ public interface UserMapper {
      **/
     @Select("SELECT password FROM user WHERE name=#{name}")
     String selectPasswordByUserName(String name);
+
+    /**
+     * 查询所有的用户信息，返回map类型
+     **/
+    @MapKey("id")
+    Map<Integer, User> selectMap();
 }
