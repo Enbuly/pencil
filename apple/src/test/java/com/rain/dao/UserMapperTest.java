@@ -1,6 +1,7 @@
 package com.rain.dao;
 
 import com.rain.api.apple.model.User;
+import com.rain.api.apple.model.vo.UserKey;
 import io.lettuce.core.RedisURI;
 import io.lettuce.core.cluster.RedisClusterClient;
 import io.lettuce.core.cluster.api.StatefulRedisClusterConnection;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -30,13 +32,29 @@ public class UserMapperTest {
         for (User user : users) {
             System.out.println(user.toString());
         }
+
+        //分组
+        System.out.println("分组");
+        Map<String, List<User>> listMap = users.stream().collect(Collectors.groupingBy(User::getId));
+        for (Map.Entry<String, List<User>> entry : listMap.entrySet()) {
+            System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
+        }
+
+        //根据多个字段分组
+        System.out.println("根据多个字段分组");
+        Map<UserKey, List<User>> map = users.stream().collect(Collectors.groupingBy(o ->
+                new UserKey(o.getId(), o.getName())
+        ));
+        for (Map.Entry<UserKey, List<User>> entry : map.entrySet()) {
+            System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
+        }
     }
 
     @Test
     public void testMap() {
         Map<Integer, User> map = userMapper.selectMap();
         for (Map.Entry<Integer, User> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + ":" + entry.getValue());
+            System.out.println("key: " + entry.getKey() + " value: " + entry.getValue());
         }
     }
 
