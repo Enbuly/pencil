@@ -7,7 +7,7 @@
     RemoteController 提供远程调用服务demo - RestTemplate远程调用提供者
     DubboServiceImpl dubbo远程调用提供者
     UserController 增删改查导入导出demo
-  #### banana
+  #### banana(dubbo RestTemplate)
     DubboController dubbo远程调用demo
     RestTemplateController RestTemplate远程调用demo
   #### common
@@ -25,7 +25,7 @@
     ResultVo
     util
     ...
-  #### cat
+  #### cat(kafka zookeeper https)
     KafkaController kafka的使用demo
     LockController zookeeper的分布式锁demo，使用curator
     CuratorConfigurer
