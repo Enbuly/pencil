@@ -47,7 +47,7 @@ public class RedisController {
         return stringRedisTemplate.opsForValue().get(key);
     }
 
-    @ApiOperation("测试存储Object")
+    @ApiOperation("测试存储Object-redis存string")
     @PostMapping(value = "saveObject")
     public User saveObject() {
         String value = "0171826834da554b43d2c72bb1767c7898f27bf91775463e2b3b4e0f3806e0255d6e52ca286b";
