@@ -88,6 +88,25 @@ public class RedisController {
         return (List<User>) redisTemplate.boundValueOps(listKey).get();
     }
 
+    @ApiOperation("测试存储list2")
+    @PostMapping("/saveList2")
+    public List<User> saveList2() {
+        String listKey = StringUtils.join(new String[]{"user", "list2"}, ":");
+        List<User> list = new ArrayList<>();
+        User user1 = new User();
+        user1.setName("zzz");
+        user1.setPassword("120157");
+        User user2 = new User();
+        user2.setName("xxx");
+        user2.setPassword("120157");
+        list.add(user1);
+        list.add(user2);
+
+        redisTemplate.opsForList().rightPush(listKey, list);
+        redisTemplate.expire(listKey, 60, TimeUnit.SECONDS);
+        return (List<User>) (List) redisTemplate.opsForList().range(listKey, 0, -1);
+    }
+
     @ApiOperation("测试redis的setNx命令")
     @GetMapping(value = "setNx")
     public Boolean setNx() {
