@@ -65,6 +65,7 @@ spring:
         max-idle: 5
         max-wait: 60000ms
         max-active: 10
+    password: zzy120157229
 
 async:
   executor:
