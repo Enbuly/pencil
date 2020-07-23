@@ -35,7 +35,7 @@ public class RedisController {
 
     @Resource
     @Qualifier("redisCacheTemplate")
-    private RedisTemplate<String, Object> redisCacheTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @ApiOperation("测试存储string")
     @PostMapping(value = "saveString")
@@ -55,8 +55,20 @@ public class RedisController {
         user.setName("Tom");
         user.setPassword(value);
         String userKey = StringUtils.join(new String[]{"user", "model"}, ":");
-        redisCacheTemplate.opsForValue().set(userKey, user, 60, TimeUnit.SECONDS);
-        return (User) redisCacheTemplate.opsForValue().get(userKey);
+        redisTemplate.opsForValue().set(userKey, user, 60, TimeUnit.SECONDS);
+        return (User) redisTemplate.opsForValue().get(userKey);
+    }
+
+    @ApiOperation("测试存储Object-redis存hash")
+    @PostMapping(value = "saveHash")
+    public User saveHash() {
+        User user = new User();
+        user.setId("100001");
+        user.setName("zzy");
+        user.setPassword("123456");
+        String userKey = StringUtils.join(new String[]{"user", "model"}, ":");
+        redisTemplate.opsForHash().put(userKey, user.getId(), user);
+        return (User) redisTemplate.opsForHash().get(userKey, user.getId());
     }
 
     @ApiOperation("测试存储list")
@@ -73,8 +85,8 @@ public class RedisController {
         list.add(user1);
         list.add(user2);
 
-        redisCacheTemplate.boundValueOps(listKey).set(list, 60, TimeUnit.SECONDS);
-        return (List<User>) redisCacheTemplate.boundValueOps(listKey).get();
+        redisTemplate.boundValueOps(listKey).set(list, 60, TimeUnit.SECONDS);
+        return (List<User>) redisTemplate.boundValueOps(listKey).get();
     }
 
     @ApiOperation("测试redis的setNx命令")
