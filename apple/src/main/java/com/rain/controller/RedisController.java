@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,26 +86,36 @@ public class RedisController {
         list.add(user2);
 
         redisTemplate.boundValueOps(listKey).set(list, 60, TimeUnit.SECONDS);
-        return (List<User>) redisTemplate.boundValueOps(listKey).get();
+        List<User> users = (List<User>) redisTemplate.boundValueOps(listKey).get();
+        if (!CollectionUtils.isEmpty(users))
+            for (User user : users)
+                System.out.println(user.toString());
+        return users;
     }
 
     @ApiOperation("测试存储list2")
     @PostMapping("/saveList2")
     public List<User> saveList2() {
         String listKey = StringUtils.join(new String[]{"user", "list2"}, ":");
-        List<User> list = new ArrayList<>();
         User user1 = new User();
+        user1.setId("100001");
         user1.setName("zzz");
         user1.setPassword("120157");
+        user1.setPhone("15602227266");
         User user2 = new User();
+        user2.setId("100002");
         user2.setName("xxx");
         user2.setPassword("120157");
-        list.add(user1);
-        list.add(user2);
+        user2.setPhone("13828831312");
 
-        redisTemplate.opsForList().rightPush(listKey, list);
+        redisTemplate.opsForList().rightPush(listKey, user1);
+        redisTemplate.opsForList().rightPush(listKey, user2);
         redisTemplate.expire(listKey, 60, TimeUnit.SECONDS);
-        return (List<User>) (List) redisTemplate.opsForList().range(listKey, 0, -1);
+        List<User> users = (List<User>) (List) redisTemplate.opsForList().range(listKey, 0, -1);
+        if (!CollectionUtils.isEmpty(users))
+            for (User user : users)
+                System.out.println(user.toString());
+        return users;
     }
 
     @ApiOperation("测试redis的setNx命令")
