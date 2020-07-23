@@ -13,6 +13,12 @@
       /usr/local/etc/kafka/server.properties
       /usr/local/etc/kafka/zookeeper.properties
 
+   ### 关闭kafka和zookeeper
+      cd /usr/local/Cellar/kafka/2.2.1/bin
+      kafka-server-stop
+      cd /usr/local/Cellar/kafka/2.2.1/bin
+      zookeeper-server-stop
+
 ## kafka学习笔记
 
 #### 消息队列-kafka
