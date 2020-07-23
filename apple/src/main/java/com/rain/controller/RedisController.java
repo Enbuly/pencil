@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * thread com.rain.controller
+ * redis controller
+ *
+ * 笔记:
+ * redis的key都是string类型的
+ * 而value有string、list、hash、set、
  *
  * @author lazy cat
  * @since 2019-04-11
@@ -58,8 +62,8 @@ public class RedisController {
         return (User) redisTemplate.opsForValue().get(userKey);
     }
 
-    @ApiOperation("测试存储Object-redis存hash")
-    @PostMapping(value = "saveHash")
+    @ApiOperation("opsForHash存储hash")
+    @PostMapping(value = "opsForHash")
     public User saveHash() {
         User user = new User();
         user.setId("100001");
@@ -71,8 +75,8 @@ public class RedisController {
         return (User) redisTemplate.opsForHash().get(userKey, user.getId());
     }
 
-    @ApiOperation("测试存储list")
-    @PostMapping("/saveList")
+    @ApiOperation("boundValueOps存储list")
+    @PostMapping("/boundValueOps")
     public List<User> saveList() {
         String listKey = StringUtils.join(new String[]{"user", "list"}, ":");
         List<User> list = new ArrayList<>();
@@ -93,8 +97,8 @@ public class RedisController {
         return users;
     }
 
-    @ApiOperation("测试存储list2")
-    @PostMapping("/saveList2")
+    @ApiOperation("opsForList存储list")
+    @PostMapping("/opsForList")
     public List<User> saveList2() {
         String listKey = StringUtils.join(new String[]{"user", "list2"}, ":");
         User user1 = new User();
