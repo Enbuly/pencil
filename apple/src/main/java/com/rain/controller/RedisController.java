@@ -68,6 +68,7 @@ public class RedisController {
         user.setPassword("123456");
         String userKey = StringUtils.join(new String[]{"user", "model"}, ":");
         redisTemplate.opsForHash().put(userKey, user.getId(), user);
+        redisTemplate.expire(userKey, 60, TimeUnit.SECONDS);
         return (User) redisTemplate.opsForHash().get(userKey, user.getId());
     }
 
