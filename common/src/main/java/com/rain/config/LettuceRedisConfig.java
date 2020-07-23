@@ -26,7 +26,7 @@ public class LettuceRedisConfig {
     private LettuceConnectionFactory lettuceConnectionFactory;
 
     @Bean
-    public RedisTemplate<String, Object> redisCacheTemplate() {
+    public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 
         StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();

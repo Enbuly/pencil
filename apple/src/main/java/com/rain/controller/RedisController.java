@@ -5,7 +5,6 @@ import com.rain.api.apple.model.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +33,6 @@ public class RedisController {
     private StringRedisTemplate stringRedisTemplate;
 
     @Resource
-    @Qualifier("redisCacheTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
     @ApiOperation("测试存储string")
@@ -66,7 +64,7 @@ public class RedisController {
         user.setId("100001");
         user.setName("zzy");
         user.setPassword("123456");
-        String userKey = StringUtils.join(new String[]{"user", "model"}, ":");
+        String userKey = StringUtils.join(new String[]{"user", "hash"}, ":");
         redisTemplate.opsForHash().put(userKey, user.getId(), user);
         redisTemplate.expire(userKey, 60, TimeUnit.SECONDS);
         return (User) redisTemplate.opsForHash().get(userKey, user.getId());
