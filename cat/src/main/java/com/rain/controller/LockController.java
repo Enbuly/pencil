@@ -3,9 +3,12 @@ package com.rain.controller;
 import com.rain.catConfig.CuratorConfigurer;
 import com.rain.catConfig.ZookeeperConfigurer;
 import io.swagger.annotations.Api;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +35,9 @@ public class LockController {
 
     @Resource
     private ZookeeperConfigurer zookeeperConfigurer;
+
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
 
     @GetMapping(value = "lock")
     public String lock(String name) {
@@ -62,6 +68,33 @@ public class LockController {
                 return "hi " + name;
             }
             return "hello " + name;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        } finally {
+            try {
+                mutex.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //分布式锁解决超卖问题
+    //redis减库存完成后用消息队列减数据库库存
+    @PostMapping(value = "countDown")
+    public String countDown() {
+        InterProcessMutex mutex = new InterProcessMutex(curatorFramework, zookeeperConfigurer.getLockPath());
+        try {
+            if (mutex.acquire(0, TimeUnit.SECONDS)) {
+                String count = stringRedisTemplate.opsForValue().get("count");
+
+                if (!StringUtils.isEmpty(count) && Integer.parseInt(count) > 0) {
+                    stringRedisTemplate.opsForValue().decrement("count");
+                }
+                return stringRedisTemplate.opsForValue().get("count");
+            }
+            return "";
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
