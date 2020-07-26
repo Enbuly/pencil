@@ -29,7 +29,7 @@ public class DubboController {
     @GetMapping(value = "/hello")
     public String sayHello(@RequestParam String name, @RequestParam String email) {
         System.out.println("come to hello method!");
-        return "welcome to rules! " + name + ", you email is " + email;
+        return "welcome to banana! " + name + ", you email is " + email;
     }
 
     //http://localhost:8763/banana/fruit/dubboDemo
