@@ -63,7 +63,7 @@ public class RedisController {
         return (User) redisTemplate.opsForHash().get(userKey, user.getId());
     }
 
-    @ApiOperation("boundValueOps存储list")
+    @ApiOperation("boundValueOps存储list-需要遍历list才会存储list->监控，否则用hash")
     @PostMapping("/boundValueOps")
     public List<User> saveList() {
         String listKey = StringUtils.join(new String[]{"user", "list"}, ":");
@@ -85,7 +85,7 @@ public class RedisController {
         return users;
     }
 
-    @ApiOperation("opsForList存储list")
+    @ApiOperation("opsForList存储list-需要遍历list才会存储list->监控，否则用hash")
     @PostMapping("/opsForList")
     public List<User> saveList2() {
         String listKey = StringUtils.join(new String[]{"user", "list2"}, ":");
