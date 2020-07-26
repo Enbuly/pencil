@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  *
  * 笔记:
  * redis的key都是string类型的
- * 而value有string、list、hash、set、
+ * 而value有string、list、hash、set、sorted set
  *
  * @author lazy cat
  * @since 2019-04-11
