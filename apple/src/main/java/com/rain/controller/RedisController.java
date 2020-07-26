@@ -8,10 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -40,38 +37,29 @@ public class RedisController {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    @ApiOperation("测试存储string")
+    @ApiOperation("存储string数据结构-简单的string类型")
     @PostMapping(value = "saveString")
-    public String saveString() {
-        String key = StringUtils.join(new String[]{"user", "token"}, ":");
-        String value = "0171826834da554b43d2c72bb1767c7898f27bf91775463e2b3b4e0f3806e0255d6e52ca286b";
-        stringRedisTemplate.opsForValue().set(key, value);
-        stringRedisTemplate.expire(key, 60, TimeUnit.SECONDS);
-        return stringRedisTemplate.opsForValue().get(key);
+    public String saveString(String key, String value) {
+        String keys = StringUtils.join(new String[]{"user", "string", key}, ":");
+        stringRedisTemplate.opsForValue().set(keys, value);
+        stringRedisTemplate.expire(keys, 5, TimeUnit.MINUTES);
+        return stringRedisTemplate.opsForValue().get(keys);
     }
 
-    @ApiOperation("测试存储Object-redis存string")
-    @PostMapping(value = "saveObject")
-    public User saveObject() {
-        String value = "0171826834da554b43d2c72bb1767c7898f27bf91775463e2b3b4e0f3806e0255d6e52ca286b";
-        User user = new User();
-        user.setName("Tom");
-        user.setPassword(value);
-        String userKey = StringUtils.join(new String[]{"user", "model"}, ":");
-        redisTemplate.opsForValue().set(userKey, user, 60, TimeUnit.SECONDS);
+    @ApiOperation("存储string数据结构-根据用户id存储用户信息")
+    @PostMapping(value = "saveObject1")
+    public User saveObject(@RequestBody User user) {
+        String userKey = StringUtils.join(new String[]{"user", "model", user.getId()}, ":");
+        redisTemplate.opsForValue().set(userKey, user, 5, TimeUnit.MINUTES);
         return (User) redisTemplate.opsForValue().get(userKey);
     }
 
-    @ApiOperation("opsForHash存储hash")
-    @PostMapping(value = "opsForHash")
-    public User saveHash() {
-        User user = new User();
-        user.setId("100001");
-        user.setName("zzy");
-        user.setPassword("123456");
-        String userKey = StringUtils.join(new String[]{"user", "hash"}, ":");
+    @ApiOperation("存储hash数据结构-根据用户id存储用户信息")
+    @PostMapping(value = "saveObject2")
+    public User saveHash(@RequestBody User user) {
+        String userKey = StringUtils.join(new String[]{"user", "token"}, ":");
         redisTemplate.opsForHash().put(userKey, user.getId(), user);
-        redisTemplate.expire(userKey, 60, TimeUnit.SECONDS);
+        redisTemplate.expire(userKey, 5, TimeUnit.MINUTES);
         return (User) redisTemplate.opsForHash().get(userKey, user.getId());
     }
 
@@ -89,7 +77,7 @@ public class RedisController {
         list.add(user1);
         list.add(user2);
 
-        redisTemplate.boundValueOps(listKey).set(list, 60, TimeUnit.SECONDS);
+        redisTemplate.boundValueOps(listKey).set(list, 5, TimeUnit.MINUTES);
         List<User> users = (List<User>) redisTemplate.boundValueOps(listKey).get();
         if (!CollectionUtils.isEmpty(users))
             for (User user : users)
@@ -114,7 +102,7 @@ public class RedisController {
 
         redisTemplate.opsForList().rightPush(listKey, user1);
         redisTemplate.opsForList().rightPush(listKey, user2);
-        redisTemplate.expire(listKey, 60, TimeUnit.SECONDS);
+        redisTemplate.expire(listKey, 5, TimeUnit.MINUTES);
         List<User> users = (List<User>) (List) redisTemplate.opsForList().range(listKey, 0, -1);
         if (!CollectionUtils.isEmpty(users))
             for (User user : users)
