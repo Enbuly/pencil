@@ -129,7 +129,7 @@ public class RedisController {
         return stringRedisTemplate.opsForValue().setIfAbsent("lock", "1", 20, TimeUnit.SECONDS);
     }
 
-    @ApiOperation("redis+lua解决超卖问题-先给商品设置数量")
+    @ApiOperation("redis+lua解决超卖问题-给商品设置数量-生产上可以用定时任务")
     @PostMapping(value = "setPaperCount")
     public void setPaperCount() {
         redisTemplate.opsForHash().put("paperCount", "paperNewCount", 0);
