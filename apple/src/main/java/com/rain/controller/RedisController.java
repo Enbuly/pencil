@@ -7,6 +7,8 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +35,17 @@ public class RedisController {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+
+    //paperNewCount现在卖出去的数量
+    //paperMaxCount卖出去的最大数量
+    private static final String GET_COUPON_CODE =
+            "local values = redis.call('hmget',KEYS[1],'paperNewCount','paperMaxCount');\n" +
+                    "if tonumber(values[1]) < tonumber(values[2]) then \n" +
+                    "  redis.call('hincrby',KEYS[1],'paperNewCount',1);\n" +
+                    "  return true;\n" +
+                    "else\n " +
+                    "  return false;\n" +
+                    "end\n";
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
@@ -114,5 +127,22 @@ public class RedisController {
     @GetMapping(value = "setNx")
     public Boolean setNx() {
         return stringRedisTemplate.opsForValue().setIfAbsent("lock", "1", 20, TimeUnit.SECONDS);
+    }
+
+    @ApiOperation("redis+lua解决超卖问题-先给商品设置数量")
+    @PostMapping(value = "setPaperCount")
+    public void setPaperCount() {
+        redisTemplate.opsForHash().put("paperCount", "paperNewCount", 0);
+        redisTemplate.opsForHash().put("paperCount", "paperMaxCount", 30);
+        redisTemplate.expire("paperCount", 5, TimeUnit.MINUTES);
+    }
+
+    @ApiOperation("redis+lua解决超卖问题")
+    @PostMapping(value = "paperCount")
+    public Long paperCount() {
+        List<String> list = new ArrayList<>();
+        list.add("paperCount");
+        RedisScript<Long> REDIS_SCRIPT = new DefaultRedisScript<>(GET_COUPON_CODE, Long.class);
+        return redisTemplate.execute(REDIS_SCRIPT, list);
     }
 }
