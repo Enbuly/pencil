@@ -137,7 +137,7 @@ public class RedisController {
         redisTemplate.expire("paperCount", 5, TimeUnit.MINUTES);
     }
 
-    @ApiOperation("redis+lua解决超卖问题")
+    @ApiOperation("redis+lua解决超卖问题-使用前先调用setPaperCount接口")
     @PostMapping(value = "paperCount")
     public Long paperCount() {
         List<String> list = new ArrayList<>();
