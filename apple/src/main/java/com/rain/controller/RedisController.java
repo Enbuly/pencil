@@ -139,10 +139,10 @@ public class RedisController {
 
     @ApiOperation("redis+lua解决超卖问题-使用前先调用setPaperCount接口")
     @PostMapping(value = "paperCount")
-    public Long paperCount() {
+    public Boolean paperCount() {
         List<String> list = new ArrayList<>();
         list.add("paperCount");
-        RedisScript<Long> REDIS_SCRIPT = new DefaultRedisScript<>(GET_COUPON_CODE, Long.class);
+        RedisScript<Boolean> REDIS_SCRIPT = new DefaultRedisScript<>(GET_COUPON_CODE, Boolean.class);
         return redisTemplate.execute(REDIS_SCRIPT, list);
     }
 }
