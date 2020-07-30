@@ -15,6 +15,7 @@
         <module>banana</module>
         <module>cat</module>
         <module>dog</module>
+        <module>elephant</module>
     </modules>
 
     <properties>
