@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * RedisService
+ * RedisBloomFilterService
  *
  * @author lazy cat
  * 2020-07-31
