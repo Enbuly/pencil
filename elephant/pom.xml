@@ -33,6 +33,7 @@
             <version>0.9.0.RELEASE</version>
         </dependency>
 
+        <!--maven打包war，忽略spring boot内置的tomcat-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -40,6 +41,7 @@
         </dependency>
     </dependencies>
 
+    <!--maven打包war-->
     <build>
         <plugins>
             <plugin>
