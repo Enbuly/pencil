@@ -3,7 +3,7 @@
     AsyncController spring的异步任务demo
     GuavaLimitController guava的api级别限流demo
     LoginController 登陆controller
-    RedisController redis使用demo，redis+lua使用
+    RedisController redis使用demo，redis+lua使用，redis+lua布隆过滤器
     RemoteController 提供远程调用服务demo - RestTemplate远程调用提供者
     DubboServiceImpl dubbo远程调用提供者
     UserController 增删改查导入导出demo
