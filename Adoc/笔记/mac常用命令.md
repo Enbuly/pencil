@@ -32,4 +32,5 @@
  ### redis
     redis-server 启动redis服务
     redis-cli shutdown 停止redis服务
+    auth zzy120157229 密码认证
     control+c 退出redis服务界面

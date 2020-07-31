@@ -2,6 +2,7 @@ package com.rain.controller;
 
 import com.rain.annotation.aopLog.Loggable;
 import com.rain.api.apple.model.User;
+import com.rain.service.impl.RedisBloomFilterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
@@ -35,6 +36,9 @@ public class RedisController {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
+
+    @Resource
+    private RedisBloomFilterService redisBloomFilterService;
 
     //paperNewCount现在卖出去的数量
     //paperMaxCount卖出去的最大数量
@@ -144,5 +148,15 @@ public class RedisController {
         list.add("paperCount");
         RedisScript<Boolean> REDIS_SCRIPT = new DefaultRedisScript<>(GET_COUPON_CODE, Boolean.class);
         return redisTemplate.execute(REDIS_SCRIPT, list);
+    }
+
+    @GetMapping(value = "redisIdAdd")
+    public boolean redisIdAdd(String id) {
+        return redisBloomFilterService.bloomFilter("add", id);
+    }
+
+    @GetMapping(value = "redisIdExists")
+    public boolean redisIdExists(String id) {
+        return redisBloomFilterService.bloomFilter("exist", id);
     }
 }
