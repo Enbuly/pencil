@@ -150,13 +150,15 @@ public class RedisController {
         return redisTemplate.execute(REDIS_SCRIPT, list);
     }
 
+    @ApiOperation("redis+lua测试布隆过滤器添加")
     @GetMapping(value = "redisIdAdd")
-    public boolean redisIdAdd(String id) {
-        return redisBloomFilterService.bloomFilter("add", id);
+    public boolean redisIdAdd(String value) {
+        return redisBloomFilterService.bloomFilter("add", value);
     }
 
+    @ApiOperation("redis+lua测试布隆过滤器是否存在")
     @GetMapping(value = "redisIdExists")
-    public boolean redisIdExists(String id) {
-        return redisBloomFilterService.bloomFilter("exist", id);
+    public boolean redisIdExists(String value) {
+        return redisBloomFilterService.bloomFilter("exist", value);
     }
 }
