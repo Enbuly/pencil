@@ -31,4 +31,9 @@ public class HiController {
     public int giraffe(@RequestBody Book book) {
         return giraffeService.giraffe(book.getId(), book.getCount());
     }
+
+    @PostMapping("distributedAffair")
+    public void distributedAffair() {
+        giraffeService.distributedAffair();
+    }
 }

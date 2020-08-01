@@ -1,5 +1,6 @@
 package com.rain.service;
 
+import com.rain.api.flower.Book;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,5 +15,10 @@ public class ServiceHiHystrix implements ServiceHi {
     @Override
     public String sayHiFromClientOne(String name) {
         return "sorry " + name;
+    }
+
+    @Override
+    public String count(Book book) {
+        return "sorry: id:" + book.getId() + ",count:" + book.getCount();
     }
 }
