@@ -1,6 +1,6 @@
 package com.rain.dao;
 
-import org.mapstruct.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 批量处理mapper
