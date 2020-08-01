@@ -41,3 +41,7 @@
   #### gateway
     GatewayConfig gateway使用sentinel限流配置
     AuthFilter 鉴权
+  #### flower
+    HelloController 为giraffe项目提供api演示openfeign调用
+  #### giraffe
+    HiController 演示openfeign调用->调用flower的api
