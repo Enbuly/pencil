@@ -1,9 +1,11 @@
 package com.rain.controller;
 
+import com.rain.model.Book;
+import com.rain.service.FlowerService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * hello服务
@@ -17,9 +19,17 @@ public class HelloController {
     @Value("${server.port}")
     String port;
 
+    @Resource
+    private FlowerService flowerService;
+
     @GetMapping("/hi")
     public String home(@RequestParam String name) {
         //System.out.println("come eureka client");
         return "hi " + name + " ,i am from port:" + port;
+    }
+
+    @PostMapping("flower")
+    public int flower(@RequestBody Book book) {
+        return flowerService.flower(book.getId(), book.getCount());
     }
 }
