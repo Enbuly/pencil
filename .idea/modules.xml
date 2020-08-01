@@ -8,7 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/dog/dog.iml" filepath="$PROJECT_DIR$/dog/dog.iml" />
       <module fileurl="file://$PROJECT_DIR$/elephant/elephant.iml" filepath="$PROJECT_DIR$/elephant/elephant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flower/flower.iml" filepath="$PROJECT_DIR$/flower/flower.iml" />
       <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/giraffe/giraffe.iml" filepath="$PROJECT_DIR$/giraffe/giraffe.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pencil.iml" filepath="$PROJECT_DIR$/.idea/pencil.iml" />
     </modules>
   </component>

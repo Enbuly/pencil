@@ -16,6 +16,8 @@
         <module>cat</module>
         <module>dog</module>
         <module>elephant</module>
+        <module>flower</module>
+        <module>giraffe</module>
     </modules>
 
     <properties>
