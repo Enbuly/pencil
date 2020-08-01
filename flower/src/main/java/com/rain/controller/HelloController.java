@@ -1,6 +1,6 @@
 package com.rain.controller;
 
-import com.rain.model.Book;
+import com.rain.api.flower.Book;
 import com.rain.service.FlowerService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;

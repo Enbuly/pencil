@@ -1,4 +1,4 @@
-package com.rain.model;
+package com.rain.api.flower;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
