@@ -36,7 +36,7 @@ public class GiraffeServiceImpl implements GiraffeService {
      **/
     @Override
     public void distributedAffair() {
-        serviceHi.count(new Book(1, 500));
         giraffe(2, 600);
+        serviceHi.count(new Book(1, 500));
     }
 }
