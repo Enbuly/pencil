@@ -1,6 +1,7 @@
-package com.rain.service;
+package com.rain.service.impl;
 
 import com.rain.dao.GiraffeMapper;
+import com.rain.service.GiraffeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
