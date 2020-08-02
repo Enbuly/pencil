@@ -205,7 +205,7 @@ public class DruidConfig {
         return sessionFactory.getObject();
     }
 
-    private DruidDataSource copy(String driverClassName, String url, String username,
+    DruidDataSource copy(String driverClassName, String url, String username,
                          String password, int initialSize, int minIdle, int maxActive, long maxWait,
                          long timeBetweenEvictionRunsMillis, long minEvictableIdleTimeMillis, String validationQuery,
                          boolean testWhileIdle, boolean testOnBorrow, boolean testOnReturn,
