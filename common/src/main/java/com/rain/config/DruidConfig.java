@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Component;
@@ -175,7 +174,6 @@ public class DruidConfig {
 
     @Bean(name = "dbOneDruidDataSource", initMethod = "init", destroyMethod = "close")
     @ConditionalOnMissingBean(name = "dbOneDruidDataSource")
-    @Primary
     public DruidDataSource dataSource() {
         return copy(driverClassName, url, username,
                 password, initialSize, minIdle, maxActive, maxWait,
@@ -186,21 +184,18 @@ public class DruidConfig {
 
     @Bean(name = "dbOneTransactionManager")
     @ConditionalOnMissingBean(name = "dbOneTransactionManager")
-    @Primary
     public DataSourceTransactionManager dbOneTransactionManager(@Qualifier("dbOneDruidDataSource") DruidDataSource druidDataSource) {
         return new DataSourceTransactionManager(druidDataSource);
     }
 
     @Bean(name = "dbOneTransactionTemplate")
     @ConditionalOnMissingBean(name = "dbOneTransactionTemplate")
-    @Primary
     public TransactionTemplate dbOneTransactionTemplate(@Qualifier("dbOneTransactionManager") PlatformTransactionManager platformTransactionManager) {
         return new TransactionTemplate(platformTransactionManager);
     }
 
     @Bean(name = "dbOneSqlSessionFactory")
     @ConditionalOnMissingBean(name = "dbOneSqlSessionFactory")
-    @Primary
     public SqlSessionFactory dbOneSqlSessionFactory(@Qualifier("dbOneDruidDataSource") DruidDataSource druidDataSource)
             throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
