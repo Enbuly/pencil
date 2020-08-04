@@ -5,10 +5,11 @@ server:
 
 spring:
   cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
-      config:
         server-addr: 127.0.0.1:8848
   application:
     name: service-flower
@@ -55,3 +56,8 @@ async:
 
 kafka:
   ip: 127.0.0.1:9092
+
+logging:
+  level:
+    io:
+      seata: debug

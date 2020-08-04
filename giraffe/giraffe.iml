@@ -47,16 +47,12 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.24" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.17.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.3.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.1.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.1.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-test:2.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-test:2.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.jayway.jsonpath:json-path:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: net.minidev:json-smart:2.3" level="project" />
     <orderEntry type="library" name="Maven: net.minidev:accessors-smart:1.2" level="project" />
-    <orderEntry type="library" name="Maven: org.ow2.asm:asm:5.0.4" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.assertj:assertj-core:3.11.1" level="project" />
     <orderEntry type="library" name="Maven: org.mockito:mockito-core:2.23.4" level="project" />
@@ -67,8 +63,6 @@
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-library:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.skyscreamer:jsonassert:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin.external.google:android-json:0.0.20131108.vaadin1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.1.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.xmlunit:xmlunit-core:2.6.3" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.17" level="project" />
@@ -82,7 +76,6 @@
     <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-common:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: io.springfox:springfox-spring-web:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.4.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.28" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.mapstruct:mapstruct:1.0.0.Final" level="project" />
@@ -105,7 +98,6 @@
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.10" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.10" level="project" />
     <orderEntry type="library" name="Maven: cn.afterturn:easypoi-base:3.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.15" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.11" level="project" />
@@ -144,7 +136,6 @@
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.kafka:spring-kafka:2.2.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-messaging:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.retry:spring-retry:1.2.4.RELEASE" level="project" />
@@ -171,12 +162,10 @@
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-openfeign-core:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-netflix-ribbon:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-netflix-archaius:2.1.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.github.openfeign.form:feign-form-spring:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: io.github.openfeign.form:feign-form:3.8.0" level="project" />
     <orderEntry type="library" name="Maven: commons-fileupload:commons-fileupload:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.1.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-commons:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.github.openfeign:feign-core:10.2.3" level="project" />
@@ -185,19 +174,38 @@
     <orderEntry type="library" name="Maven: com.netflix.archaius:archaius-core:0.7.6" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.code.findbugs:jsr305:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: commons-configuration:commons-configuration:1.8" level="project" />
-    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: com.netflix.hystrix:hystrix-core:1.5.18" level="project" />
     <orderEntry type="library" name="Maven: io.reactivex:rxjava:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.hdrhistogram:HdrHistogram:2.1.9" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:0.9.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-alibaba-nacos-config:0.9.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba.cloud:spring-cloud-alibaba-seata:2.1.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.seata:seata-all:1.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.39.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.60" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.12" level="project" />
+    <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.28" level="project" />
+    <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.6" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.7.1" level="project" />
+    <orderEntry type="library" name="Maven: cglib:cglib:3.1" level="project" />
+    <orderEntry type="library" name="Maven: org.ow2.asm:asm:4.2" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.ben-manes.caffeine:caffeine:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.2.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:0.9.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-alibaba-nacos-discovery:0.9.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-client:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-common:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.nacos:nacos-api:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.47" level="project" />
     <orderEntry type="library" name="Maven: io.prometheus:simpleclient:0.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:0.9.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-alibaba-nacos-discovery:0.9.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-ribbon:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-archaius:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.netflix.ribbon:ribbon:2.3.0" level="project" />

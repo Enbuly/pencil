@@ -19,6 +19,8 @@ public class FlowerServiceImpl implements FlowerService {
 
     @Override
     public int flower(int id, int count) {
+        if (count == 500)
+            throw new RuntimeException("异常丫");
         return flowerMapper.update(id, count);
     }
 }
