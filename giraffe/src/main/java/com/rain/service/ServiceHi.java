@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author lazy cat
  * @since 2020-01-16
  **/
-@FeignClient(value = "service-flower", fallback = ServiceHiHystrix.class)
+@FeignClient(value = "service-flower")
 public interface ServiceHi {
 
     @RequestMapping(value = "/flower/hi", method = RequestMethod.GET)
