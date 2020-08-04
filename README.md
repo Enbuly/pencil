@@ -11,7 +11,7 @@
     DubboController dubbo远程调用demo
     RestTemplateController RestTemplate远程调用demo
   #### common
-    DruidConfig 数据源配置
+    MybatisConfig mybatis plus配置
     FilterConfig XssFilter XssHttpServletRequestWrapper
     KafkaConfig
     LettuceRedisConfig
