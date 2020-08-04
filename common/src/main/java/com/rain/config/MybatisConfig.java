@@ -24,34 +24,34 @@ import org.springframework.transaction.support.TransactionTemplate;
  * @since  2019-04-11
  **/
 @Configuration
-@MapperScan(value = {"com.rain.dao"}, sqlSessionFactoryRef = "dbOneSqlSessionFactory")
+@MapperScan(value = {"com.rain.dao"})
 public class MybatisConfig {
 
     private static final String MAPPER_LOCATION = "classpath:mapper/*.xml";
 
-    @Bean(name = "dbOneDruidDataSource")
-    @ConditionalOnMissingBean(name = "dbOneDruidDataSource")
+    @Bean(name = "druidDataSource")
+    @ConditionalOnMissingBean(name = "druidDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DruidDataSource dataSource() {
         return new DruidDataSource();
     }
 
-    @Bean(name = "dbOneTransactionManager")
-    @ConditionalOnMissingBean(name = "dbOneTransactionManager")
+    @Bean(name = "mysqlTransactionManager")
+    @ConditionalOnMissingBean(name = "mysqlTransactionManager")
     @Primary
-    public DataSourceTransactionManager dbOneTransactionManager(@Qualifier("dbOneDruidDataSource") DruidDataSource druidDataSource) {
+    public DataSourceTransactionManager mysqlTransactionManager(@Qualifier("druidDataSource") DruidDataSource druidDataSource) {
         return new DataSourceTransactionManager(druidDataSource);
     }
 
-    @Bean(name = "dbOneTransactionTemplate")
-    @ConditionalOnMissingBean(name = "dbOneTransactionTemplate")
-    public TransactionTemplate dbOneTransactionTemplate(@Qualifier("dbOneTransactionManager") PlatformTransactionManager platformTransactionManager) {
+    @Bean(name = "transactionTemplate")
+    @ConditionalOnMissingBean(name = "transactionTemplate")
+    public TransactionTemplate dbOneTransactionTemplate(@Qualifier("mysqlTransactionManager") PlatformTransactionManager platformTransactionManager) {
         return new TransactionTemplate(platformTransactionManager);
     }
 
-    @Bean(name = "dbOneSqlSessionFactory")
-    @ConditionalOnMissingBean(name = "dbOneSqlSessionFactory")
-    public SqlSessionFactory dbOneSqlSessionFactory(@Qualifier("dbOneDruidDataSource") DruidDataSource druidDataSource)
+    @Bean(name = "sqlSessionFactory")
+    @ConditionalOnMissingBean(name = "sqlSessionFactory")
+    public SqlSessionFactory dbOneSqlSessionFactory(@Qualifier("druidDataSource") DruidDataSource druidDataSource)
             throws Exception {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(druidDataSource);
