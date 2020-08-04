@@ -48,16 +48,11 @@
             <version>1.16.12</version>
         </dependency>
 
-        <!-- mybatis、及其分页插件 -->
+        <!-- mybatis plus -->
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>4.1.6</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.1</version>
         </dependency>
 
         <!--shiro-->
