@@ -17,8 +17,12 @@ import org.springframework.context.annotation.FilterType;
  **/
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @EnableDiscoveryClient
-@ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-        classes = {com.rain.exception.handler.GlobalExceptionHandler.class}))
+@ComponentScan(excludeFilters = {
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
+                classes = {com.rain.exception.handler.GlobalExceptionHandler.class}),
+        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
+                classes = {com.rain.config.MybatisConfig.class})
+})
 public class FlowerApplication {
 
     public static void main(String[] args) {
