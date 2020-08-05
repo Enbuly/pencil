@@ -9,6 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * spring boot启动
  *
+ * @see com.rain.exception.handler.GlobalExceptionHandler 注意:全局异常处理会导致openfeign
+ * 调用异常不传递，导致分布式事务失败。
  * @author lazy cat
  * 2020-05-28
  **/

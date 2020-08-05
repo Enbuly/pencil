@@ -43,5 +43,7 @@
     AuthFilter 鉴权
   #### flower
     HelloController 为giraffe项目提供api演示openfeign调用
+    演示了seata实现分布式事务 注意:使用前去掉common的GlobalExceptionHandler全局异常
   #### giraffe
     HiController 演示openfeign调用->调用flower的api
+    演示了seata实现分布式事务 注意:使用前去掉common的GlobalExceptionHandler全局异常
