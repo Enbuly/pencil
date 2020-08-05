@@ -23,6 +23,8 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfiguration {
 
+    private static final String MAPPER_LOCATION = "classpath:mapper/*.xml";
+
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DataSource druidDataSource() {
@@ -40,7 +42,7 @@ public class DataSourceConfiguration {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSourceProxy);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources("classpath:mapper/*.xml"));
+                .getResources(MAPPER_LOCATION));
         sqlSessionFactoryBean.setTransactionFactory(new SpringManagedTransactionFactory());
         return sqlSessionFactoryBean.getObject();
     }
