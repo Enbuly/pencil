@@ -34,3 +34,14 @@
     redis-cli shutdown 停止redis服务
     auth zzy120157229 密码认证
     control+c 退出redis服务界面
+ ### redis布隆过滤器github地址
+    https://github.com/RedisBloom/RedisBloom
+    git clone
+    cd RedisBloom
+    make
+ ### 初始化seata 的nacos配置
+    cd conf
+    sh nacos-config.sh 192.168.21.89
+ ### 启动seata-server
+    cd bin
+    sh seata-server.sh -p 8091 -m file
