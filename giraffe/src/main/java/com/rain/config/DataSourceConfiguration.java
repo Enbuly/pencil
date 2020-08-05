@@ -1,12 +1,10 @@
 package com.rain.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import io.seata.rm.datasource.DataSourceProxy;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -23,18 +21,13 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfiguration {
 
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource.druid")
-    public DataSource druidDataSource() {
-        return new DruidDataSource();
-    }
-
     @Primary
-    @Bean("dataSource")
+    @Bean("dataSourceProxy")
     public DataSourceProxy dataSource(DataSource druidDataSource) {
         return new DataSourceProxy(druidDataSource);
     }
 
+    @Primary
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSourceProxy dataSourceProxy) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();

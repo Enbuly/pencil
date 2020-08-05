@@ -21,10 +21,7 @@ import org.springframework.context.annotation.FilterType;
 @EnableFeignClients
 @ComponentScan(excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-                classes = {com.rain.exception.handler.GlobalExceptionHandler.class}),
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,
-                classes = {com.rain.config.MybatisConfig.class})
-})
+                classes = {com.rain.exception.handler.GlobalExceptionHandler.class})})
 public class GiraffeApplication {
 
     public static void main(String[] args) {
