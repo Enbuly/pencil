@@ -11,11 +11,10 @@
     DubboController dubbo远程调用demo
     RestTemplateController RestTemplate远程调用demo
   #### common
-    MybatisConfig mybatis plus配置
+    MybatisConfig - mybatis plus配置
     FilterConfig XssFilter XssHttpServletRequestWrapper
     KafkaConfig
     LettuceRedisConfig
-    PageHelperConfig
     RestTemplateConfig
     Swagger2
     ThreadPoolTaskExecutorConfig
