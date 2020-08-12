@@ -1,4 +1,4 @@
-package com.rain.study.net.netty;
+package com.rain.study.net.netty.http_server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
