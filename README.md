@@ -31,7 +31,7 @@
     ZookeeperConfigurer
     HttpConfig 使用https,同时支持http
     kafkaListener
-    study -> sort,net,juc,lambda,steam,dom4j...
+    study -> sort,net,juc,lambda,steam,dom4j，netty...
   #### dog(redis cluster)
     RedissonController redis集群下的分布式锁的获取
     StaticScheduleTask 定时任务
