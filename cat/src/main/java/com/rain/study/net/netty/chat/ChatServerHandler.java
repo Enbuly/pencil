@@ -30,7 +30,6 @@ public class ChatServerHandler extends SimpleChannelInboundHandler<String> {
         group.remove(ctx.channel());
     }
 
-
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) {
         if (StringUtils.isEmpty(msg)) {
