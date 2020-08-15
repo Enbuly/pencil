@@ -18,7 +18,11 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) {
         if (msg instanceof HttpRequest) {
+            HttpRequest httpRequest = (HttpRequest) msg;
+            System.out.println(httpRequest.uri());
+
             ByteBuf content = Unpooled.copiedBuffer("Hello Netty", CharsetUtil.UTF_8);
+
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                     HttpResponseStatus.OK, content);
             response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
