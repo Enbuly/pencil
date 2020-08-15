@@ -32,16 +32,19 @@ public class ChatServerHandler extends SimpleChannelInboundHandler<String> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) {
-        if (StringUtils.isEmpty(msg)) {
-            return;
-        }
-        Channel incoming = ctx.channel();
-        for (Channel channel : group) {
-            if (channel != incoming) {
-                channel.writeAndFlush(msg + "\n");
-            } else {
-                channel.writeAndFlush(msg + "\n");
+        //taskQueue执行任务
+        ctx.channel().eventLoop().execute(() -> {
+            if (StringUtils.isEmpty(msg)) {
+                return;
             }
-        }
+            Channel incoming = ctx.channel();
+            for (Channel channel : group) {
+                if (channel != incoming) {
+                    channel.writeAndFlush(msg + "\n");
+                } else {
+                    channel.writeAndFlush(msg + "\n");
+                }
+            }
+        });
     }
 }
