@@ -49,6 +49,12 @@ public class ChatServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
             ChannelFuture future = bootstrap.bind(8080).sync();
+            future.addListener((f) -> {
+                if (f.isSuccess())
+                    System.out.println("bind port success");
+                else
+                    System.out.println("bind port error");
+            });
             future.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
