@@ -29,8 +29,8 @@ public class ChatServer {
     }
 
     private void start() {
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        EventLoopGroup workerGroup = new NioEventLoopGroup(8);
 
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
