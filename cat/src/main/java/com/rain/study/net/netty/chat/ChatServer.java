@@ -46,7 +46,9 @@ public class ChatServer {
                             pipeline.addLast(new ChatServerHandler(channelGroup));
                         }
                     })
+                    //初始化服务器可连接队列大小
                     .option(ChannelOption.SO_BACKLOG, 128)
+                    //一直保证连接状态
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
             ChannelFuture future = bootstrap.bind(8080).sync();
             future.addListener((f) -> {
