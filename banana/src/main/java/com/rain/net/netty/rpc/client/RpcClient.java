@@ -15,6 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
+
 /**
  * RpcClient
  *
@@ -25,16 +28,16 @@ import org.springframework.stereotype.Component;
 @ChannelHandler.Sharable
 public class RpcClient extends SimpleChannelInboundHandler<String> {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcClient.class);
-    private final Object obj = new Object();
     private Response response;
+    private ConcurrentHashMap<String, CountDownLatch> map = new ConcurrentHashMap<>();
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, String msg) {
         this.response = JSON.parseObject(msg, Response.class);
 
-        synchronized (obj) {
-            obj.notifyAll();
-        }
+        CountDownLatch countDownLatch = map.get(response.getRequestId());
+        countDownLatch.countDown();
+        map.remove(response.getRequestId());
     }
 
     @Override
@@ -43,7 +46,8 @@ public class RpcClient extends SimpleChannelInboundHandler<String> {
         ctx.close();
     }
 
-    Response send(Request request) throws Exception {
+    Response send(Request request, CountDownLatch countDownLatch) throws Exception {
+        map.put(request.getId(), countDownLatch);
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap bootstrap = new Bootstrap();
@@ -62,9 +66,7 @@ public class RpcClient extends SimpleChannelInboundHandler<String> {
             ChannelFuture future = bootstrap.connect("127.0.0.1", 8899).sync();
             future.channel().writeAndFlush(JSONObject.toJSONString(request)).sync();
 
-            synchronized (obj) {
-                obj.wait();
-            }
+            countDownLatch.await();
 
             if (response != null) {
                 future.channel().closeFuture();

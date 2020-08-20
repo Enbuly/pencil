@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * RpcProxy
@@ -22,6 +23,7 @@ public class RpcProxy {
 
     @SuppressWarnings("unchecked")
     public <T> T create(Class<?> interfaceClass) {
+        CountDownLatch countDownLatch = new CountDownLatch(1);
         return (T) Proxy.newProxyInstance(
                 interfaceClass.getClassLoader(),
                 new Class<?>[]{interfaceClass},
@@ -33,7 +35,7 @@ public class RpcProxy {
                     request.setParameterTypes(method.getParameterTypes());
                     request.setParameters(args);
 
-                    Response response = rpcClient.send(request);
+                    Response response = rpcClient.send(request, countDownLatch);
 
                     if (response.getCode() == 1) {
                         return response.getErrorMsg();
