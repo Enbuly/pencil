@@ -10,7 +10,7 @@
   #### banana(dubbo RestTemplate)
     DubboController dubbo远程调用demo
     RestTemplateController RestTemplate远程调用demo
-    net -> io,nio,netty
+    net -> io,nio,netty -> netty rpc
   #### common
     MybatisConfig - mybatis plus配置
     FilterConfig XssFilter XssHttpServletRequestWrapper
