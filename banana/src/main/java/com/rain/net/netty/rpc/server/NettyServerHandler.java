@@ -3,6 +3,7 @@ package com.rain.net.netty.rpc.server;
 import com.alibaba.fastjson.JSON;
 import com.rain.net.netty.rpc.common.model.Request;
 import com.rain.net.netty.rpc.common.model.Response;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleState;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @author lazy cat
  * 2020-08-20
  **/
+@ChannelHandler.Sharable
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
     private final Logger logger = LoggerFactory.getLogger(NettyServerHandler.class);
@@ -71,21 +73,9 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
             Method method = serviceClass.getMethod(methodName, parameterTypes);
             method.setAccessible(true);
-            return method.invoke(serviceBean, getParameters(parameterTypes, parameters));
+            return method.invoke(serviceBean, parameters);
         } else {
             throw new Exception("未找到服务接口,请检查配置!:" + className + "#" + request.getMethodName());
-        }
-    }
-
-    private Object[] getParameters(Class<?>[] parameterTypes, Object[] parameters) {
-        if (parameters == null || parameters.length == 0) {
-            return parameters;
-        } else {
-            Object[] new_parameters = new Object[parameters.length];
-            for (int i = 0; i < parameters.length; i++) {
-                new_parameters[i] = JSON.parseObject(parameters[i].toString(), parameterTypes[i]);
-            }
-            return new_parameters;
         }
     }
 
