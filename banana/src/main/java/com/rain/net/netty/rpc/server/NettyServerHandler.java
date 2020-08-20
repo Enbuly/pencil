@@ -1,6 +1,7 @@
 package com.rain.net.netty.rpc.server;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.rain.net.netty.rpc.common.model.Request;
 import com.rain.net.netty.rpc.common.model.Response;
 import io.netty.channel.ChannelHandler;
@@ -10,6 +11,7 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -20,6 +22,7 @@ import java.util.Map;
  * @author lazy cat
  * 2020-08-20
  **/
+@Component
 @ChannelHandler.Sharable
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
 
@@ -39,7 +42,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         ctx.channel().close();
     }
 
-    public void channelRead(ChannelHandlerContext ctx, Object msg) {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         Request request = JSON.parseObject(msg.toString(), Request.class);
 
         if ("heartBeat".equals(request.getMethodName())) {
@@ -57,7 +60,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
                 response.setErrorMsg(e.toString());
                 logger.error("RPC Server handle request error", e);
             }
-            ctx.writeAndFlush(response);
+            ctx.writeAndFlush(JSONObject.toJSONString(response)).sync();
         }
     }
 
