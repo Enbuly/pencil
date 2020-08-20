@@ -1,4 +1,4 @@
-package com.rain.study.net.netty.chat;
+package com.rain.net.netty.chat;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;

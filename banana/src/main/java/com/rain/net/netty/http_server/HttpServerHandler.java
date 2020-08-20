@@ -1,4 +1,4 @@
-package com.rain.study.net.netty.http_server;
+package com.rain.net.netty.http_server;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

@@ -1,4 +1,4 @@
-package com.rain.study.net.nio;
+package com.rain.net.nio;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedChannelException;

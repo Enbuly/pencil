@@ -1,4 +1,4 @@
-package com.rain.study.net.netty.rpc;
+package com.rain.net.netty.rpc.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

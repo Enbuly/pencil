@@ -1,4 +1,4 @@
-package com.rain.study.net.netty.rpc;
+package com.rain.net.netty.rpc.common.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +21,7 @@ public class Request {
 
     private String methodName;
 
-    private Class<?> parameterTypes;
+    private Class<?>[] parameterTypes;
 
-    private Object parameters;
+    private Object[] parameters;
 }
