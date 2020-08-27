@@ -17,17 +17,18 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * easyExcel excel controller
+ * easyExcel controller
  *
  * @author lazy cat
  * 2020-08-27
  **/
-@Api(description = "easyExcel excel controller")
+@Api(description = "easyExcel controller")
 @RestController
 @RequestMapping(value = "/easy")
 public class EasyExcelController {
 
     private static final Logger logger = LoggerFactory.getLogger(EasyExcelController.class);
+
     @Resource
     private BananaMapper bananaMapper;
 
