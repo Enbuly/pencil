@@ -1,6 +1,9 @@
 package com.rain.dao;
 
+import com.rain.api.apple.model.User;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * banana mapper
@@ -10,4 +13,9 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface BananaMapper {
+
+    /**
+     * 新增用户信息
+     **/
+    int batchInsertUser(List<User> users);
 }

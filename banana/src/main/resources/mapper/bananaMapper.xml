@@ -2,4 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rain.dao.BananaMapper">
 
+    <insert id="batchInsertUser">
+        insert into user(
+        id, name, salary, status, phone, password
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id}, #{item.name}, #{item.salary},
+            #{item.status}, #{item.phone}, #{item.password})
+        </foreach>
+    </insert>
 </mapper>

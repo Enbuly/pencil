@@ -15,6 +15,9 @@ dubbo:
     check: false
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
   main:
     allow-bean-definition-overriding: true
   cloud:
