@@ -2,7 +2,6 @@ package com.rain.easyExcel;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import com.alibaba.fastjson.JSON;
 import com.rain.api.apple.model.User;
 import com.rain.dao.BananaMapper;
 import org.slf4j.Logger;
@@ -27,13 +26,15 @@ public class UserListener extends AnalysisEventListener<User> {
 
     private BananaMapper bananaMapper;
 
+    private int sum;
+
     public UserListener(BananaMapper bananaMapper) {
         this.bananaMapper = bananaMapper;
+        sum = 0;
     }
 
     @Override
     public void invoke(User data, AnalysisContext context) {
-        LOGGER.info("解析到一条数据:{}", JSON.toJSONString(data));
         list.add(data);
         if (list.size() >= BATCH_COUNT) {
             saveData();
@@ -44,11 +45,12 @@ public class UserListener extends AnalysisEventListener<User> {
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
         saveData();
-        LOGGER.info("所有数据解析完成");
+        LOGGER.info("一共{}条数据解析存储完成.", sum);
     }
 
     private void saveData() {
-        LOGGER.info("{}条数据，开始存储数据库！", list.size());
+        LOGGER.info("{}条数据解析完成，开始存储数据库...", list.size());
+        sum = sum + list.size();
         System.out.println(list.toString());
         bananaMapper.batchInsertUser(list);
         LOGGER.info("存储数据库成功！");
