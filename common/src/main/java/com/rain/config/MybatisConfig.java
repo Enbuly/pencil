@@ -3,6 +3,7 @@ package com.rain.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -51,12 +52,14 @@ public class MybatisConfig {
 
     @Bean(name = "sqlSessionFactory")
     @ConditionalOnMissingBean(name = "sqlSessionFactory")
-    public SqlSessionFactory dbOneSqlSessionFactory(@Qualifier("druidDataSource") DruidDataSource druidDataSource)
-            throws Exception {
+    public SqlSessionFactory dbOneSqlSessionFactory(@Qualifier("druidDataSource") DruidDataSource druidDataSource,
+                                                    @Qualifier("paginationInterceptor") PaginationInterceptor paginationInterceptor) throws Exception {
         MybatisSqlSessionFactoryBean bean = new MybatisSqlSessionFactoryBean();
         bean.setDataSource(druidDataSource);
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         bean.setMapperLocations(resolver.getResources(MAPPER_LOCATION));
+        Interceptor[] plugins = {paginationInterceptor};
+        bean.setPlugins(plugins);
         SqlSessionFactory factory;
         try {
             factory = bean.getObject();

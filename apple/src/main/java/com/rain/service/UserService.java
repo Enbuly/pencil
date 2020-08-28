@@ -1,5 +1,6 @@
 package com.rain.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,11 @@ public interface UserService {
      * 查询所有的用户信息
      **/
     List<User> select(User user);
+
+    /**
+     * 分页查询
+     **/
+    IPage<User> selectPage(int pageNumber, int pageSize);
 
     /**
      * 根据用户id修改用户信息

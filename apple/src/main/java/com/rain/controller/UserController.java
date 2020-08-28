@@ -1,5 +1,6 @@
 package com.rain.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
 import com.rain.service.UserService;
@@ -30,6 +31,12 @@ public class UserController {
     @GetMapping(value = "/list")
     public List<User> list(User user) {
         return userService.select(user);
+    }
+
+    @GetMapping(value = "/page")
+    public IPage<User> page(@RequestParam(name = "pageNumber", defaultValue = "1") int pageNumber,
+                            @RequestParam(name = "pageSize", defaultValue = "10") int pageSize) {
+        return userService.selectPage(pageNumber, pageSize);
     }
 
     @PostMapping(value = "update")

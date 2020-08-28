@@ -1,5 +1,6 @@
 package com.rain.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
 import org.apache.ibatis.annotations.MapKey;
@@ -16,7 +17,7 @@ import java.util.Map;
  * @since 2019-09-14
  **/
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
 
     /**
      * 查询所有的用户信息

@@ -1,5 +1,8 @@
 package com.rain.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.rain.api.apple.model.User;
 import com.rain.api.apple.model.vo.UserVo;
 import com.rain.constant.ResultCode;
@@ -29,6 +32,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> select(User user) {
         return userMapper.select(user);
+    }
+
+    @Override
+    public IPage<User> selectPage(int pageNumber, int pageSize) {
+        IPage<User> userPage = new Page<>(pageNumber, pageSize);
+        return userMapper.selectPage(userPage, new QueryWrapper<>());
     }
 
     @Override
