@@ -11,4 +11,27 @@
             #{item.status}, #{item.phone}, #{item.password})
         </foreach>
     </insert>
+
+    <select id="select" resultType="com.rain.api.apple.model.User">
+        select id, name, salary, status, phone, password from user
+        where 1=1
+        <if test="id != null and id != ''">
+            and id = #{id}
+        </if>
+        <if test="name != null and name != ''">
+            and name = #{name}
+        </if>
+        <if test="salary != null and salary != ''">
+            and salary = #{salary}
+        </if>
+        <if test="status != null and status != ''">
+            and status = #{status}
+        </if>
+        <if test="phone != null and phone != ''">
+            and phone = #{phone}
+        </if>
+        <if test="password != null and password != ''">
+            and password = #{password}
+        </if>
+    </select>
 </mapper>

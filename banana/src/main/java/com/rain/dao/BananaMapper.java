@@ -18,4 +18,9 @@ public interface BananaMapper {
      * 新增用户信息
      **/
     int batchInsertUser(List<User> users);
+
+    /**
+     * 查询所有的用户信息
+     **/
+    List<User> select(User user);
 }
