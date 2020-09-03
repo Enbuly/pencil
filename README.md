@@ -9,9 +9,9 @@
     UserController 增删改查导入导出demo
   #### banana(dubbo RestTemplate)
     DubboController dubbo远程调用demo
+    EasyExcelController 演示了easy excel的导入导出
     RestTemplateController RestTemplate远程调用demo
     net -> io,nio,netty -> netty rpc
-    easy excel -> 解析excel的大量数据并存储
   #### common
     MybatisConfig - mybatis plus配置
     FilterConfig XssFilter XssHttpServletRequestWrapper
