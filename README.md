@@ -9,7 +9,7 @@
     UserController 增删改查导入导出demo
   #### banana(dubbo RestTemplate)
     DubboController dubbo远程调用demo
-    EasyExcelController 演示了easy excel的导入导出
+    EasyExcelController 演示了easy excel的导入导出(大数据的导入导出)
     RestTemplateController RestTemplate远程调用demo
     net -> io,nio,netty -> netty rpc
   #### common
