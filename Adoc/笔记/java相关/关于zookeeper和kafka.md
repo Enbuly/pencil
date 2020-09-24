@@ -100,17 +100,20 @@ broker端会在内存中为每一对维护一个序列号。对于收到的每�
 个生产者会话(session)中单分区的幂等。幂等性不能跨多个分区运作，而事务可以弥补这个缺陷。
 
 -> 事务(kafka从0.11版本开始引入了事务的支持)
-为了跨分区跨会话幂等,应用程序必须提供一个稳定的(重启后不变)唯
-一的ID,也即Transaction ID。Transaction ID与PID一一对应。
-区别在于Transaction ID由用户提供，将生产者的 
-transactional.id配置项设置为某个唯一ID。而PID是内部的实
-现对用户透明。
-另外，为了保证新的Producer启动后，旧的具有相同 
-Transaction ID的Producer失效，每次Producer 
-通过Transaction ID拿到PID的同时，还会获取一个
-单调递增的epoch。由于旧的Producer的epoch比新
-Producer的epoch小，Kafka可以很容易识别出该
-Producer是老的Producer并拒绝其请求。
+事务可以保证对多个分区写入操作的原子性。操作的原子性是指多个操作要么全部成功，
+要么全部失败，不存在部分成功、部分失败的可能。
+1、为了使用事务，应用程序必须提供唯一的transactionalId，这个transactionalId通过
+客户端参数transactional.id来显式设置。事务要求生产者开启幂等特性，因此通过
+将transactional.id参数设置为非空从而开启事务特性的同时需要将enable.idempotence
+设置为true（如果未显式设置，则KafkaProducer默认会将它的值设置为true），
+如果用户显式地将enable.idempotence设置为false，则会报出ConfigException的异常。
+transactionalId与PID一一对应，两者之间所不同的是transactionalId由
+用户显式设置，而PID是由Kafka内部分配的。
+2、为了保证新的生产者启动后具有相同transactionalId的旧生产者能够立即失效，
+每个生产者通过transactionalId获取PID的同时，还会获取一个单调递增的producer epoch。
+如果使用同一个transactionalId开启两个生产者，那么前一个开启的生产者会报错。
+从生产者的角度分析，通过事务，Kafka可以保证跨生产者会话的消息幂等发送，
+以及跨生产者会话的事务恢复。
 
     使用事务配置配置：
     1、生产者配置事务id，具体见KafkaConfig。
