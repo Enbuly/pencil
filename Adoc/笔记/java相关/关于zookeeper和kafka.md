@@ -85,14 +85,19 @@ leader再给生产者发送ack。如果follower长时间未向leader
 Exactly Once = 幂等 + At Least Once
 1、ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG 的值为true
 开启幂等性。
-PID = produce id
-seqNumber 序列化号
-2、开启幂等性的producer会在初始化的时候分配一个PID，发往同一个
-partition的消息会附带seqNumber，而broker端会对
-<pid, partition, seqNumber>做缓存，当具有相同的主键的消息
-提交时，broker只会持久化一次。
-producer重启PID会变化，不同的partition也会有不同的主键，
-所以幂等性无法保证跨会话、跨分区的Exactly Once。
+2、Kafka是如何具体实现幂等的呢？Kafka为此引入了producer id（以下简称PID）和
+序列号（sequence number）这两个概念。每个新的生产者实例在初始化的时候都会被
+分配一个PID，这个PID对用户而言是完全透明的。
+对于每个PID，消息发送到的每一个分区都有对应的序列号，这些序列号从0开始单调递增。
+生产者每发送一条消息就会将对应的序列号的值加1。
+broker端会在内存中为每一对维护一个序列号。对于收到的每一条消息，只有当它的序列
+号的值(SN_new)比broker端中维护的对应的序列号的值(SN_old)大1
+(即SN_new = SN_old + 1)时，broker才会接收它。
+如果SN_new< SN_old + 1，那么说明消息被重复写入，broker可以直接将其丢弃。
+如果SN_new> SN_old + 1，那么说明中间有数据尚未写入，出现了乱序，
+暗示可能有消息丢失，这个异常是一个严重的异常。
+引入序列号来实现幂等也只是针对每一对而言的，也就是说，Kafka的幂等只能保证单
+个生产者会话（session）中单分区的幂等。幂等性不能跨多个分区运作，而事务可以弥补这个缺陷。
 
 -> 事务(kafka从0.11版本开始引入了事务的支持)
 为了跨分区跨会话幂等,应用程序必须提供一个稳定的(重启后不变)唯
