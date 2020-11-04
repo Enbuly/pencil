@@ -20,7 +20,7 @@ public class UserListener extends AnalysisEventListener<User> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserListener.class);
 
-    private static final int BATCH_COUNT = 5000;
+    private static final int BATCH_COUNT = 100;
 
     private List<User> list = new ArrayList<>();
 
