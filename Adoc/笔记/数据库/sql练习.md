@@ -202,6 +202,15 @@ group by a.cid, a.sid, a.score
 having count(b.score) <= 2
 order by a.cid asc, a.score desc;
 
+## 关于根据多个字段批量删除的一个解决方案
+example: 根据id和name删除批量用户
+<delete id="delete">
+  delete from user where id||name in
+  <foreach collection="list" separator="," open="(" close=")" item="it">
+    #{it}
+  </foreach>
+</delete>
+
 ## group by学习笔记
 
 ### table: Order
