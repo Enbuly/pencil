@@ -39,6 +39,7 @@
     StaticScheduleTask 定时任务
   #### elephant
     演示spring boot项目打成war包，并在tomcat发布
+    演示spring boot yml数据库密码加密
   #### gateway
     GatewayConfig gateway使用sentinel限流配置
     AuthFilter 鉴权

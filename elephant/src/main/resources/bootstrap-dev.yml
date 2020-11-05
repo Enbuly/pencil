@@ -16,7 +16,7 @@ spring:
     druid:
       url: jdbc:mysql://localhost:3306/springboot
       username: root
-      password: 120157229
+      password: ENC(/e7GjWnNgQiSmhyMjysHPLcY+wgcKBLW)
       driver-class-name: com.mysql.jdbc.Driver
       initialSize: 3
       minIdle: 3
@@ -55,3 +55,7 @@ async:
 
 kafka:
   ip: 127.0.0.1:9092
+
+jasypt:
+  encryptor:
+    password: Hello
