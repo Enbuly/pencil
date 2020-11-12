@@ -68,3 +68,6 @@ async:
 
 kafka:
   ip: 127.0.0.1:9092
+
+logging:
+  config: classpath:log4j-dev.xml
