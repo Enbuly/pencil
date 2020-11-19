@@ -2,10 +2,7 @@ package com.rain.study.java8.streamdemo;
 
 import com.rain.study.java8.model.City;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -34,10 +31,17 @@ public class MainDemo {
         Employee e8 = new Employee(8, 79, "M", "Alex", "Gussin");
         Employee e9 = new Employee(9, 15, "F", "Neetu", "Singh");
         Employee e10 = new Employee(10, 45, "M", "Naveen", "Jain");
+        Employee e11 = new Employee(1, 22, "M", "Rick", "Beethovan");
 
-        List<Employee> employees = Arrays.asList(e1, e2, e3, e4, e5, e6, e7, e8, e9, e10);
+        List<Employee> employees = Arrays.asList(e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11);
         System.out.println("------打印所有的数据------");
         employees.forEach(System.out::println);
+
+        //根据某个字段去重
+        System.out.println("------根据某个字段去重------");
+        employees.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(
+                () -> new TreeSet<>(Comparator.comparing(Employee::getId))), ArrayList::new)
+        ).forEach(System.out::println);
 
         //用map
         /*List<Employee> list = employees.stream()
