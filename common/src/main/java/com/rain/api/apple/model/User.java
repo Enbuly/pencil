@@ -1,6 +1,7 @@
 package com.rain.api.apple.model;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
+import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
@@ -60,6 +61,7 @@ public class User implements Serializable {
      * 用户密码
      **/
     @Excel(name = "用户密码")
-    @ExcelProperty("用户密码")
+    @ExcelIgnore
+    //@ExcelProperty("用户密码")
     private String password;
 }
