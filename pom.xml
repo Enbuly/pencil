@@ -18,6 +18,7 @@
         <module>elephant</module>
         <module>flower</module>
         <module>giraffe</module>
+        <module>higrpc</module>
     </modules>
 
     <properties>
