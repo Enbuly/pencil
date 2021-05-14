@@ -6,6 +6,7 @@ import com.rain.service.GiraffeService;
 import com.rain.service.ServiceHi;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -36,9 +37,11 @@ public class GiraffeServiceImpl implements GiraffeService {
      * 分布式事务seata
      **/
     @Override
+    @Transactional
     @GlobalTransactional(rollbackFor = Exception.class)
     public void distributedAffair() {
         giraffe(2, 600);
+        System.out.println("debug in this look undo log");
         serviceHi.count(new Book(1, 500));
     }
 }
