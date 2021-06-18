@@ -14,8 +14,8 @@ import java.util.List;
  * remote controller
  *
  * @author lazy cat
- * 2020-07-06
- **/
+ * 2020-06-18
+- **/
 @RestController
 @RequestMapping(value = "/fruit")
 public class RemoteController extends BaseController {
