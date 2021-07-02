@@ -39,19 +39,19 @@ public class ResultVo<T> implements Serializable {
         this.message = message;
     }
 
-    public static ResultVo success(String message) {
-        return new ResultVo(ResultCode.SUCCESS.getCode(), message);
+    public static <T> ResultVo<T> success(String message) {
+        return new ResultVo<>(ResultCode.SUCCESS.getCode(), message);
     }
 
     public static <T> ResultVo<T> success(T data, String message) {
         return new ResultVo<>(ResultCode.SUCCESS.getCode(), data, message);
     }
 
-    public static ResultVo error(String message) {
-        return new ResultVo(ResultCode.ERROR.getCode(), message);
+    public static <T> ResultVo<T> error(String message) {
+        return new ResultVo<>(ResultCode.ERROR.getCode(), message);
     }
 
-    public static ResultVo create(String code, String message) {
-        return new ResultVo(code, message);
+    public static <T> ResultVo<T> create(String code, String message) {
+        return new ResultVo<>(code, message);
     }
 }
