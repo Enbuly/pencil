@@ -103,6 +103,13 @@
             <version>3.3.2</version>
         </dependency>
 
+        <!-- 加密工具 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-crypto</artifactId>
+            <version>5.7.3</version>
+        </dependency>
+
         <!--xss过滤器所用-->
         <dependency>
             <groupId>org.jsoup</groupId>

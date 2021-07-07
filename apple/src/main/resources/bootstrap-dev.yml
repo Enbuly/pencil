@@ -27,7 +27,7 @@ spring:
     name: service-apple
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/springboot
+      url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT
       username: root
       password: 120157229
       driver-class-name: com.mysql.jdbc.Driver
@@ -71,3 +71,9 @@ kafka:
 
 logging:
   config: classpath:log4j-dev.xml
+
+# 开启添加注解http解密
+faster:
+  secret:
+    enabled: true
+    key: 1234567898765432
