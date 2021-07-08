@@ -4,11 +4,10 @@ import com.rain.api.apple.model.User;
 import com.rain.responseVo.ResultVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -23,6 +22,7 @@ import java.util.concurrent.TimeUnit;
 @Api(description = "redisson Controller")
 @RestController
 @RequestMapping(value = "/redLock")
+@Slf4j
 public class RedissonController extends BaseController {
 
     @Resource
@@ -35,13 +35,11 @@ public class RedissonController extends BaseController {
     @Qualifier("redisCacheTemplate")
     private RedisTemplate<String, Object> redisCacheTemplate;
 
-    private Logger log = LoggerFactory.getLogger(RedissonController.class);
-
     /**
      * redis集群模式下的分布式锁的实现
      **/
     @GetMapping(value = "/testRedLock")
-    public ResultVo testRedLock() throws Exception {
+    public ResultVo<Boolean> testRedLock() throws Exception {
         RLock lock = redissonClient.getLock("anyLock");
         lock.lock(20, TimeUnit.SECONDS);
         Thread.sleep(10000);

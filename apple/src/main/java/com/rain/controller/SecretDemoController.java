@@ -1,6 +1,5 @@
 package com.rain.controller;
 
-
 import com.rain.annotation.secret.SecretBody;
 import com.rain.api.apple.model.User;
 import io.swagger.annotations.Api;
