@@ -25,7 +25,7 @@ public class GuavaLimitController {
     //http://localhost:8762/apple/fruit/testLimit
     @GetMapping("/testLimit")
     @RateLimit(limitKey = "testLimit", limitCount = "10")
-    public ResultVo testLimit() throws Exception {
+    public ResultVo<String> testLimit() throws Exception {
         threadServer.doTaskFifth();
         return ResultVo.success("异步任务执行完毕...");
     }

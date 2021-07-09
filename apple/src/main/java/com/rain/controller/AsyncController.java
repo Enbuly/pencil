@@ -28,7 +28,7 @@ public class AsyncController extends BaseController {
     private ThreadServer threadServer;
 
     @PostMapping("/testAsyncTask")
-    public ResultVo testAsyncTask() throws Exception {
+    public ResultVo<String> testAsyncTask() throws Exception {
         CountDownLatch countDownLatch = new CountDownLatch(3);
         threadServer.doTaskOne(countDownLatch);
         threadServer.doTaskTwo(countDownLatch);
@@ -38,7 +38,7 @@ public class AsyncController extends BaseController {
     }
 
     @PostMapping("/testFuture")
-    public ResultVo testFuture() throws Exception {
+    public ResultVo<String> testFuture() throws Exception {
         Future<String> future = threadServer.doTaskFourth();
         return ResultVo.success(future.get());
     }

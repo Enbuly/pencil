@@ -34,7 +34,7 @@ public class LoginController extends BaseController {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
 
-    private Logger log = LoggerFactory.getLogger(LoginController.class);
+    private final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @GetMapping(value = "/login")
     public ResultVo<String> login(@RequestParam(value = "user_name") String name,
