@@ -30,7 +30,7 @@ spring:
     name: service-banana
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/springboot
+      url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT
       username: root
       password: 120157229
       driver-class-name: com.mysql.jdbc.Driver

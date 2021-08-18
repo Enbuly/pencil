@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping(value = "/fruit")
 public class DubboController {
 
-    @Reference(retries = 3, timeout = 4000)
+    @Reference(retries = 3, timeout = 4000, loadbalance = "random")
     private DubboService dubboService;
 
     //http://localhost:8763/banana/fruit/hello?name=zzy&email=120157229
