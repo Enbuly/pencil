@@ -24,3 +24,8 @@
        序列化：http表单
        链接描述：依懒servlet容器配置
        使用场景：1、数据包大小混合
+   #### 关于负载均衡
+       分别是基于权重随机算法的 RandomLoadBalance
+       基于最少活跃调用数算法的 LeastActiveLoadBalance
+       基于 hash 一致性的 ConsistentHashLoadBalance
+       以及基于加权轮询算法的 RoundRobinLoadBalance
