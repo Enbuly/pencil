@@ -4,7 +4,7 @@
        1、protocol
        2、hessian
      一些协议
-       1、dubbo(默认)协议：
+       1、dubbo(默认)协议
        传输服务：mina,netty(默认),grizzy
        序列化：dubbo,hessian(默认),java,fastjson
        链接描述：单个长连接NIO,异步传输
