@@ -13,6 +13,7 @@ dubbo:
   consumer:
     timeout: 4000
     check: false
+    loadbalance: roundrobin
 
 spring:
   servlet:

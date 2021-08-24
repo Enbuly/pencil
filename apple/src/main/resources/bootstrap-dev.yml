@@ -13,6 +13,8 @@ dubbo:
   protocol:
     name: dubbo
     port: 20880
+  provide:
+    loadbalance: roundrobin
 
 spring:
   main:
