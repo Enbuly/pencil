@@ -39,7 +39,7 @@ public class AsyncController extends BaseController {
 
     @PostMapping("/testFuture")
     public ResultVo<String> testFuture() throws Exception {
-        // will do it
+        // will do it, go go go
         Future<String> future = threadServer.doTaskFourth();
         return ResultVo.success(future.get());
     }
