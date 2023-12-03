@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/apple/apple.iml" filepath="$PROJECT_DIR$/apple/apple.iml" />
-      <module fileurl="file://$PROJECT_DIR$/banana/banana.iml" filepath="$PROJECT_DIR$/banana/banana.iml" />
       <module fileurl="file://$PROJECT_DIR$/cat/cat.iml" filepath="$PROJECT_DIR$/cat/cat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/dog/dog.iml" filepath="$PROJECT_DIR$/dog/dog.iml" />
       <module fileurl="file://$PROJECT_DIR$/elephant/elephant.iml" filepath="$PROJECT_DIR$/elephant/elephant.iml" />
       <module fileurl="file://$PROJECT_DIR$/flower/flower.iml" filepath="$PROJECT_DIR$/flower/flower.iml" />
-      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/giraffe/giraffe.iml" filepath="$PROJECT_DIR$/giraffe/giraffe.iml" />
-      <module fileurl="file://$PROJECT_DIR$/higrpc/higrpc.iml" filepath="$PROJECT_DIR$/higrpc/higrpc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/pencil.iml" filepath="$PROJECT_DIR$/.idea/pencil.iml" />
     </modules>
   </component>
 </project>

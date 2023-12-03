@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="banana" />
+        <module name="apple" />
+        <module name="common" />
+        <module name="giraffe" />
+        <module name="cat" />
+        <module name="dog" />
+        <module name="elephant" />
+        <module name="gateway" />
+        <module name="flower" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="higrpc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
