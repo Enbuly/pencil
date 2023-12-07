@@ -1,4 +1,4 @@
-# 国内chatgpt private使用说明，网站地址：www.chatgpt-private.top
+# chatgpt private使用说明，网站地址：www.chatgpt-private.top
 
 ### 一、声明：
 ### 1）本网站仅可用于学习知识查阅资料。
