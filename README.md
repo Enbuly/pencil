@@ -3,7 +3,7 @@
 ### 一、声明：
 ### 1）本网站仅可用于学习知识查阅资料。
 ### 2）本网站不会有任何广告，也不会以任何形式存储用户相关的任何信息，访问本站也无需科学上网工具。
-### 3）本网站源自github开源项目，在此项目上做了一些小调整，需要源码的同学可以自行浏览学习。https://github.com/Yidadaa/ChatGPT-Next-Web。
+### 3）本网站源自github开源项目，在此项目上做了一些小调整，需要源码的同学可以自行浏览学习。https://github.com/Yidadaa/ChatGPT-Next-Web
 
 ### 二、使用说明
 #### 1）输入网址www.chatgpt-private.top，点击登录按钮
