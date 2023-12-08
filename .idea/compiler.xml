@@ -18,8 +18,5 @@
         <module name="flower" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="higrpc" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
