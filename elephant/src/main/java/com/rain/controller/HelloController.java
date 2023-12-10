@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/hello")
 public class HelloController {
 
-    //localhost:8767/elephant/hello/hello?name=zzy
-    //打成war包的访问地址：
-    //http://localhost:8080/elephant/hello/hello?name=zzy
+    // localhost:8767/elephant/hello/hello?name=zzy
+    // 打成war包的访问地址：
+    // http://localhost:8080/elephant-1.0-SNAPSHOT/hello/hello?name=zzy
     @GetMapping(value = "hello")
     public String hello(String name) {
         return "welcome to elephant!" + name;
