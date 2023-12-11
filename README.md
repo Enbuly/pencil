@@ -1,7 +1,7 @@
 ### 前置条件
 1、本项目使用jdk1.8版本  
 2、lombok插件（232.10227.8）  
-3、需要启动mysql（8.2.0） 、redis（6.0.18）、nacos（2.3.0）  
+3、需要启动mysql（8.2.0） 、redis（6.0.18）、nacos（2.3.0）-具体请查看docker.md  
 4、执行pencil/Adoc/笔记/pencil.sql  
 
 ### nacos访问地址
