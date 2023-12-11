@@ -5,6 +5,7 @@
 
 ### swagger访问地址
 apple：http://localhost:8762/apple/swagger-ui.html
+banana：http://localhost:8763/banana/swagger-ui.html#/
 
 ## pencil note
 #### apple
