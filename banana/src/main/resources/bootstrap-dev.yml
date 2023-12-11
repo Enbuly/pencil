@@ -16,6 +16,8 @@ dubbo:
     loadbalance: roundrobin
 
 spring:
+  jmx:
+    default-domain: banana
   servlet:
     multipart:
       max-file-size: 10MB

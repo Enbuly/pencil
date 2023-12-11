@@ -17,6 +17,8 @@ dubbo:
     loadbalance: roundrobin
 
 spring:
+  jmx:
+    default-domain: apple
   main:
     allow-bean-definition-overriding: true
   cloud:

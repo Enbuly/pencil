@@ -4,6 +4,9 @@
 3、需要启动mysql（8.2.0） 、redis（6.0.18）、nacos（2.3.0）  
 4、执行pencil/Adoc/笔记/pencil.sql  
 
+### nacos访问地址
+http://localhost:8848/nacos  
+
 ### 启动项目后，本地swagger访问地址
 apple：http://localhost:8762/apple/swagger-ui.html  
 banana：http://localhost:8763/banana/swagger-ui.html
