@@ -1,9 +1,10 @@
 ### 前置条件
-1、jdk1.8版本  
-2、lombok插件  
-3、需要启动mysql 、redis、nacos  
+1、本项目使用jdk1.8版本  
+2、lombok插件（232.10227.8）  
+3、需要启动mysql（8.2.0） 、redis（6.0.18）、nacos（2.3.0）  
+4、执行pencil/Adoc/笔记/pencil.sql  
 
-### swagger访问地址
+### 启动项目后，本地swagger访问地址
 apple：http://localhost:8762/apple/swagger-ui.html  
 banana：http://localhost:8763/banana/swagger-ui.html
 

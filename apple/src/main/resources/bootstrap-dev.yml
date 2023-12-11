@@ -29,7 +29,7 @@ spring:
     name: service-apple
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT
+      url: jdbc:mysql://localhost:3306/springBoot?serverTimezone=GMT
       username: root
       password: 120157229
       driver-class-name: com.mysql.jdbc.Driver

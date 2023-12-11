@@ -26,7 +26,7 @@ spring:
           predicates:
             - Path=/banana/**
   datasource:
-    url: jdbc:mysql://localhost:3306/springboot
+    url: jdbc:mysql://localhost:3306/springBoot
     username: root
     password: 120157229
     driver-class-name: com.mysql.jdbc.Driver
