@@ -3,6 +3,7 @@ package com.rain.controller;
 import com.rain.annotation.limit.RateLimit;
 import com.rain.responseVo.ResultVo;
 import com.rain.service.ThreadServer;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
  * @author lazy cat
  * @since 2020-01-16
  **/
+@Api(description = "guava的api级别限流demo")
 @RestController
 @RequestMapping(value = "/guavaLimit")
 public class GuavaLimitController {

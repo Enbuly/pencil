@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
  * @author lazy cat
  * @since 2019-04-11
  **/
-@Api(description = "async controller")
+@Api(description = "spring的异步任务demo")
 @RestController
 @RequestMapping(value = "/async")
 @Loggable(loggable = true)

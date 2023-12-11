@@ -3,6 +3,7 @@ package com.rain.controller;
 import com.rain.api.apple.model.User;
 import com.rain.responseVo.ResultVo;
 import com.rain.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author lazy cat
  * 2020-06-18
 - **/
+@Api(description = "RestTemplate远程调用提供者")
 @RestController
 @RequestMapping(value = "/fruit")
 public class RemoteController extends BaseController {

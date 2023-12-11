@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lazy cat
  * @since 2020-01-07
  **/
-@Api(description = "secret example")
+@Api(description = "post请求加密解密处理")
 @RestController
 @RequestMapping(value = "/secret")
 public class SecretDemoController {

@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * @author lazy cat
  * @since 2019-04-25
  **/
-@Api(description = "login controller")
+@Api(description = "登陆controller")
 @RestController
 @RequestMapping(value = "/userManagement")
 @Loggable(loggable = true)

@@ -20,7 +20,7 @@ import java.util.List;
  * @author lazy cat
  * @since 2020-01-16
  **/
-@Api(description = "curd controller")
+@Api(description = "增删改查导入导出demo")
 @RestController
 @RequestMapping(value = "/curd")
 public class UserController {
