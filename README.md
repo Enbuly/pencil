@@ -7,9 +7,9 @@
 ### nacos访问地址
 http://localhost:8848/nacos  
 
-### 启动项目后，本地swagger访问地址
-apple：http://localhost:8762/apple/swagger-ui.html  
-banana：http://localhost:8763/banana/swagger-ui.html
+### 项目演示地址
+www.chatgpt-private.top:8762/apple/swagger-ui.html
+www.chatgpt-private.top:8763/banana/swagger-ui.html
 
 ## pencil note
 #### apple
@@ -63,3 +63,7 @@ banana：http://localhost:8763/banana/swagger-ui.html
 #### giraffe
     HiController 演示openfeign调用->调用flower的api
     演示了seata实现分布式事务
+
+### 启动项目后，本地swagger访问地址
+apple：http://localhost:8762/apple/swagger-ui.html  
+banana：http://localhost:8763/banana/swagger-ui.html
