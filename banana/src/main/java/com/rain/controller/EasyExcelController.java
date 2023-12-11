@@ -25,7 +25,7 @@ import java.util.Date;
  * @author lazy cat
  * 2020-08-27
  **/
-@Api(description = "easyExcel controller")
+@Api(description = "演示了easy excel的导入导出(大数据的导入导出)")
 @RestController
 @RequestMapping(value = "/easy")
 public class EasyExcelController {

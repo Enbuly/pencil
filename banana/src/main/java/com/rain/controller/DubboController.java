@@ -17,7 +17,7 @@ import java.util.List;
  * @author lazy cat
  * @since 2020-01-16
  **/
-@Api(description = "HiController controller")
+@Api(description = "dubbo远程调用demo")
 @RestController
 @RequestMapping(value = "/fruit")
 public class DubboController {

@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * @author lazy cat
  * @since 2020-08-20
  **/
-@Api(description = "Netty Rpc Controller")
+@Api(description = "netty rpc")
 @RestController
 @RequestMapping(value = "/netty")
 public class NettyRpcController {

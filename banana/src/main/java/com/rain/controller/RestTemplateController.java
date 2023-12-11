@@ -20,7 +20,7 @@ import java.util.List;
  * @author lazy cat
  * @since 2020-07-06
  **/
-@Api(description = "restTemplate controller")
+@Api(description = "RestTemplate远程调用demo")
 @RestController
 @RequestMapping(value = "/restTemplate")
 public class RestTemplateController {
