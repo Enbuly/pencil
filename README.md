@@ -5,7 +5,7 @@
 4、执行pencil/Adoc/笔记/pencil.sql  
 
 ### nacos访问地址
-www.chatgpt-private.top:8848/nacos  
+http://39.100.77.240:8848/nacos  
 
 ### 项目演示地址
 http://39.100.77.240:8762/apple/swagger-ui.html  
