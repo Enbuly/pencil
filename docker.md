@@ -5,7 +5,7 @@ docker ps
 
 ### docker安装mysql（注意把your_password替换成你的密码）
 docker pull mysql  
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=your_password -d mysql  
+docker run --name mysql-container -p 3306:3306 -e MYSQL_ROOT_PASSWORD=your_password -d mysql  
 docker ps  
 
 ### docker安装nacos
