@@ -1,6 +1,6 @@
 ### docker安装redis
 docker pull redis:6.0.18  
-docker run --name redis-container -d redis:6.0.18  
+docker run --name redis-container -p 6379:6379 -d redis:6.0.18  
 docker ps  
 
 ### docker安装mysql（注意把your_password替换成你的密码）

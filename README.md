@@ -8,8 +8,8 @@
 www.chatgpt-private.top:8848/nacos  
 
 ### 项目演示地址
-www.chatgpt-private.top:8762/apple/swagger-ui.html  
-www.chatgpt-private.top:8763/banana/swagger-ui.html  
+http://39.100.77.240:8762/apple/swagger-ui.html  
+http://39.100.77.240:8763/banana/swagger-ui.html  
 
 ## pencil note
 #### apple
