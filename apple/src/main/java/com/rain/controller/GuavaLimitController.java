@@ -24,7 +24,7 @@ public class GuavaLimitController {
     @Resource
     private ThreadServer threadServer;
 
-    //http://localhost:8762/apple/fruit/testLimit
+    // http://localhost:8762/apple/guavaLimit/testLimit
     @GetMapping("/testLimit")
     @RateLimit(limitKey = "testLimit", limitCount = "10")
     public ResultVo<String> testLimit() throws Exception {

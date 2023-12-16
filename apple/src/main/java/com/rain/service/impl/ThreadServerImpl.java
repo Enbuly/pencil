@@ -20,9 +20,9 @@ import java.util.concurrent.Future;
 @Service
 public class ThreadServerImpl implements ThreadServer {
 
-    private static Random random = new Random();
+    private final static Random random = new Random();
 
-    private Logger log = LoggerFactory.getLogger(ThreadServerImpl.class);
+    private final Logger log = LoggerFactory.getLogger(ThreadServerImpl.class);
 
     @Async("asyncServiceExecutor")
     public void doTaskOne(CountDownLatch countDownLatch) throws Exception {
