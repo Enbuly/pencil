@@ -23,9 +23,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class RateLimitAspect {
 
     //用来存放不同接口的RateLimiter(key为接口名称，value为RateLimiter)
-    private ConcurrentHashMap<String, RateLimiter> rateLimitMap = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, RateLimiter> rateLimitMap = new ConcurrentHashMap<>();
 
-    private Logger log = LoggerFactory.getLogger(RateLimitAspect.class);
+    private final Logger log = LoggerFactory.getLogger(RateLimitAspect.class);
 
     /**
      * 配置切面
@@ -57,13 +57,14 @@ public class RateLimitAspect {
 
         log.info("limit aop...");
 
-        //没加注解 直接执行返回结果->point.proceed()
+        // 没加注解 直接执行返回结果->point.proceed()
         Method method = ((MethodSignature) point.getSignature()).getMethod();
         boolean hasAnnotation = method.isAnnotationPresent(RateLimit.class);
-        RateLimit annotation = method.getAnnotation(RateLimit.class);
         if (!hasAnnotation) {
             return point.proceed();
         }
+
+        RateLimit annotation = method.getAnnotation(RateLimit.class);
 
         String limitKey = annotation.limitKey();
 
