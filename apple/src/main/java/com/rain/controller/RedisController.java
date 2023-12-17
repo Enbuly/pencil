@@ -2,14 +2,15 @@ package com.rain.controller;
 
 import com.rain.annotation.aopLog.Loggable;
 import com.rain.api.apple.model.User;
-import com.rain.service.impl.RedisBloomFilterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.data.redis.core.script.RedisScript;
+import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * redis controller
- *
+ * <p>
  * 笔记:
  * redis的key都是string类型的
  * 而value有string、list、hash、set、sorted set
@@ -36,9 +37,6 @@ public class RedisController {
 
     @Resource
     private StringRedisTemplate stringRedisTemplate;
-
-    @Resource
-    private RedisBloomFilterService redisBloomFilterService;
 
     //paperNewCount现在卖出去的数量
     //paperMaxCount卖出去的最大数量
@@ -96,9 +94,8 @@ public class RedisController {
 
         redisTemplate.boundValueOps(listKey).set(list, 5, TimeUnit.MINUTES);
         List<User> users = (List<User>) redisTemplate.boundValueOps(listKey).get();
-        if (!CollectionUtils.isEmpty(users))
-            for (User user : users)
-                System.out.println(user.toString());
+        if (!CollectionUtils.isEmpty(users)) for (User user : users)
+            System.out.println(user.toString());
         return users;
     }
 
@@ -121,9 +118,8 @@ public class RedisController {
         redisTemplate.opsForList().rightPush(listKey, user2);
         redisTemplate.expire(listKey, 5, TimeUnit.MINUTES);
         List<User> users = (List<User>) (List) redisTemplate.opsForList().range(listKey, 0, -1);
-        if (!CollectionUtils.isEmpty(users))
-            for (User user : users)
-                System.out.println(user.toString());
+        if (!CollectionUtils.isEmpty(users)) for (User user : users)
+            System.out.println(user.toString());
         return users;
     }
 
@@ -153,12 +149,28 @@ public class RedisController {
     @ApiOperation("redis+lua测试布隆过滤器添加")
     @GetMapping(value = "redisIdAdd")
     public boolean redisIdAdd(String value) {
-        return redisBloomFilterService.bloomFilter("add", value);
+        DefaultRedisScript<Boolean> bloom = new DefaultRedisScript<>();
+        bloom.setScriptSource(new ResourceScriptSource(new ClassPathResource("bloomFilterAdd.lua")));
+        bloom.setResultType(Boolean.class);
+        List<String> keyList = new ArrayList<>();
+        keyList.add("isBloom");
+        keyList.add(value);
+        Boolean result = redisTemplate.execute(bloom, keyList);
+        if (null != result) return result;
+        else return false;
     }
 
     @ApiOperation("redis+lua测试布隆过滤器是否存在")
     @GetMapping(value = "redisIdExists")
     public boolean redisIdExists(String value) {
-        return redisBloomFilterService.bloomFilter("exist", value);
+        DefaultRedisScript<Boolean> bloom = new DefaultRedisScript<>();
+        bloom.setScriptSource(new ResourceScriptSource(new ClassPathResource("bloomFilterExist.lua")));
+        bloom.setResultType(Boolean.class);
+        List<String> keyList = new ArrayList<>();
+        keyList.add("isBloom");
+        keyList.add(value);
+        Boolean result = redisTemplate.execute(bloom, keyList);
+        if (null != result) return result;
+        else return false;
     }
 }
