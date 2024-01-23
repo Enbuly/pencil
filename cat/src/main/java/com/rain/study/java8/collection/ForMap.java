@@ -1,4 +1,4 @@
-package com.rain.study.java8.hashmap;
+package com.rain.study.java8.collection;
 
 import java.util.HashMap;
 import java.util.Map;
