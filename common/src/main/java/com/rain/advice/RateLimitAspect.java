@@ -55,7 +55,7 @@ public class RateLimitAspect {
     public Object doAround(ProceedingJoinPoint point) throws Throwable {
         Object result;
 
-        log.info("limit aop...");
+        // log.info("limit aop...");
 
         // 没加注解 直接执行返回结果->point.proceed()
         Method method = ((MethodSignature) point.getSignature()).getMethod();

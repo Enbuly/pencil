@@ -13,12 +13,12 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
 /**
- * thread com.rain.controller
+ * spring的异步任务
  *
  * @author lazy cat
  * @since 2019-04-11
  **/
-@Api("spring的异步任务demo")
+@Api("spring的异步任务")
 @RestController
 @RequestMapping(value = "/async")
 @Loggable(loggable = true)
@@ -30,16 +30,18 @@ public class AsyncController extends BaseController {
     @PostMapping("/testAsyncTask")
     public ResultVo<String> testAsyncTask() throws Exception {
         CountDownLatch countDownLatch = new CountDownLatch(3);
+        // mock do task one
         threadServer.doTaskOne(countDownLatch);
+        // mock do task two
         threadServer.doTaskTwo(countDownLatch);
+        // mock do task three
         threadServer.doTaskThree(countDownLatch);
         countDownLatch.await();
-        return ResultVo.success("异步任务执行完毕...");
+        return ResultVo.success("post testAsyncTask end...");
     }
 
     @PostMapping("/testFuture")
     public ResultVo<String> testFuture() throws Exception {
-        // will do it, go go go
         Future<String> future = threadServer.doTaskFourth();
         return ResultVo.success(future.get());
     }
