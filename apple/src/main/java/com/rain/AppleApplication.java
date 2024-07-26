@@ -18,5 +18,9 @@ public class AppleApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AppleApplication.class, args);
+        System.out.println("---------------------start apple success---------------------");
+        System.out.println("swagger url is: http://localhost:8762/apple/swagger-ui.html");
+        System.out.println("application port is: 8762");
+        System.out.println("-------------------------------------------------------------");
     }
 }
