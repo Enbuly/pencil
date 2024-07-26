@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  * @author lazy cat
  * @since 2020-01-16
  **/
-@Api(description = "guava的api级别限流demo")
+@Api("guava的api级别限流demo")
 @RestController
 @RequestMapping(value = "/guavaLimit")
 public class GuavaLimitController {

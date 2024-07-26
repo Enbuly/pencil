@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
  * @author lazy cat
  * @since 2019-04-11
  **/
-@Api(description = "redis使用demo，redis+lua使用，redis+lua布隆过滤器")
+@Api("redis使用demo，redis+lua使用，redis+lua布隆过滤器")
 @RestController
 @RequestMapping(value = "/redis")
 @Loggable(loggable = true)

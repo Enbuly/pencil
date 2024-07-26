@@ -29,7 +29,7 @@ import java.util.Map;
  * @author zhangzhenyan
  * 2024-01-23
  **/
-@Api(description = "es demo")
+@Api("es curd demo")
 @RestController
 @RequestMapping(value = "/elasticsearch")
 @Loggable(loggable = true)

@@ -17,7 +17,7 @@ import java.util.List;
  * @author lazy cat
  * 2020-06-18
 - **/
-@Api(description = "RestTemplate远程调用提供者")
+@Api("RestTemplate远程调用提供者")
 @RestController
 @RequestMapping(value = "/fruit")
 public class RemoteController extends BaseController {
