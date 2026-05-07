@@ -73,4 +73,24 @@ public class ThreadServerImpl implements ThreadServer {
         long end = System.currentTimeMillis();
         logger.info("完成任务五，耗时：" + (end - start) + "毫秒");
     }
+
+    @Async("asyncServiceExecutor")
+    public void doTaskSix(CountDownLatch countDownLatch) throws Exception {
+        logger.info("开始做任务六...");
+        long start = System.currentTimeMillis();
+        Thread.sleep(random.nextInt(10000));
+        long end = System.currentTimeMillis();
+        logger.info("完成任务六，耗时：" + (end - start) + "毫秒");
+        countDownLatch.countDown();
+    }
+
+    @Async("asyncServiceExecutor")
+    public void doTaskSeven(CountDownLatch countDownLatch) throws Exception {
+        logger.info("开始做任务七...");
+        long start = System.currentTimeMillis();
+        Thread.sleep(random.nextInt(10000));
+        long end = System.currentTimeMillis();
+        logger.info("完成任务七，耗时：" + (end - start) + "毫秒");
+        countDownLatch.countDown();
+    }
 }

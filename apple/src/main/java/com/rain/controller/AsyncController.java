@@ -29,13 +29,17 @@ public class AsyncController extends BaseController {
 
     @PostMapping("/testAsyncTask")
     public ResultVo<String> testAsyncTask() throws Exception {
-        CountDownLatch countDownLatch = new CountDownLatch(3);
+        CountDownLatch countDownLatch = new CountDownLatch(5);
         // mock do task one
         threadServer.doTaskOne(countDownLatch);
         // mock do task two
         threadServer.doTaskTwo(countDownLatch);
         // mock do task three
         threadServer.doTaskThree(countDownLatch);
+        // mock do task six
+        threadServer.doTaskSix(countDownLatch);
+        // mock do task seven
+        threadServer.doTaskSeven(countDownLatch);
         countDownLatch.await();
         return ResultVo.success("post testAsyncTask end...");
     }

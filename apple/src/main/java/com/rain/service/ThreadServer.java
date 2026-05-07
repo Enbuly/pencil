@@ -49,4 +49,18 @@ public interface ThreadServer {
      * @throws Exception 执行错误抛出异常
      **/
     void doTaskFifth() throws Exception;
+
+    /**
+     * 异步任务6
+     *
+     * @throws Exception 执行错误抛出异常
+     **/
+    void doTaskSix(CountDownLatch countDownLatch) throws Exception;
+
+    /**
+     * 异步任务7
+     *
+     * @throws Exception 执行错误抛出异常
+     **/
+    void doTaskSeven(CountDownLatch countDownLatch) throws Exception;
 }
